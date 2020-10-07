@@ -1,0 +1,9 @@
+{
+  "name": "sisyphus",
+  "version": "0.0.0",
+  "description": "Sisyphus",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  }
+}
