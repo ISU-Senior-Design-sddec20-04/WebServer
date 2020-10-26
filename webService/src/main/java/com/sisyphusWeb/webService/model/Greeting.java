@@ -1,4 +1,4 @@
-package com.sisyphusWeb.webService;
+package com.sisyphusWeb.webService.model;
 
 public class Greeting {
 	private final long id;

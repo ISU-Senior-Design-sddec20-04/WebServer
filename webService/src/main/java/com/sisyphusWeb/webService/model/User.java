@@ -1,4 +1,4 @@
-package com.sisyphusWeb.webService;
+package com.sisyphusWeb.webService.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
