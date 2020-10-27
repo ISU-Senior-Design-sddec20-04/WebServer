@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +37,7 @@ public class FileController {
                 .path("/downloadFile/")
                 .path(fileName)
                 .toUriString();
-
+        
         return new UploadFileResponse(fileName, fileDownloadUri,
                 file.getContentType(), file.getSize());
     }
@@ -73,4 +74,12 @@ public class FileController {
                 .body(resource);
     }
 
+    @DeleteMapping("/deleteFile/{fileName:.+}")
+    public ResponseEntity<String> deleteFile(@PathVariable String fileName) {
+    	Boolean isDeleted = fileStorageService.removeFile(fileName);
+    	if(!isDeleted) {
+    		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    	}
+    	return new ResponseEntity<>(fileName, HttpStatus.OK);
+    }
 }

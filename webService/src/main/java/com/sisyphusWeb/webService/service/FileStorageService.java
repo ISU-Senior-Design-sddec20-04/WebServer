@@ -4,6 +4,8 @@ package com.sisyphusWeb.webService.service;
 import com.sisyphusWeb.webService.exception.FileStorageException;
 import com.sisyphusWeb.webService.exception.MyFileNotFoundException;
 import com.sisyphusWeb.webService.property.FileStorageProperties;
+import com.sisyphusWeb.webService.repository.ImageRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -33,6 +35,9 @@ public class FileStorageService {
             throw new FileStorageException("Could not create the directory where the uploaded files will be stored.", ex);
         }
     }
+    
+    @Autowired
+    ImageRepository imageRepository;
 
     public String storeFile(MultipartFile file) {
         // Normalize file name
@@ -66,5 +71,17 @@ public class FileStorageService {
         } catch (MalformedURLException ex) {
             throw new MyFileNotFoundException("File not found " + fileName, ex);
         }
+    }
+    
+    public Boolean removeFile(String fileName) {
+    	Boolean deleted = false;
+    	try	{
+    		Path filePath = this.fileStorageLocation.resolve(fileName).normalize();
+    		deleted = Files.deleteIfExists(filePath);
+    	} catch (IOException ex) {
+    		ex.printStackTrace();
+    	}
+		return deleted;
+    	
     }
 }
