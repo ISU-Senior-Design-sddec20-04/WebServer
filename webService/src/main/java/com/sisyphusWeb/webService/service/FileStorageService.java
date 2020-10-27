@@ -3,6 +3,7 @@ package com.sisyphusWeb.webService.service;
 
 import com.sisyphusWeb.webService.exception.FileStorageException;
 import com.sisyphusWeb.webService.exception.MyFileNotFoundException;
+import com.sisyphusWeb.webService.model.Image;
 import com.sisyphusWeb.webService.property.FileStorageProperties;
 import com.sisyphusWeb.webService.repository.ImageRepository;
 
@@ -18,6 +19,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class FileStorageService {
@@ -39,6 +42,15 @@ public class FileStorageService {
     @Autowired
     ImageRepository imageRepository;
 
+    public List<String> getAllFiles() {
+    	List<Image> images = imageRepository.findAll();
+    	List<String> allFiles = new ArrayList<String>();
+    	for(Image image : images) {
+    		allFiles.add(image.getFileName());
+    	}
+    	return allFiles;
+    }
+    
     public String storeFile(MultipartFile file) {
         // Normalize file name
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
@@ -52,7 +64,7 @@ public class FileStorageService {
             // Copy file to the target location (Replacing existing file with the same name)
             Path targetLocation = this.fileStorageLocation.resolve(fileName);
             Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
-
+            imageRepository.save(new Image(fileName, targetLocation.toString()));
             return fileName;
         } catch (IOException ex) {
             throw new FileStorageException("Could not store file " + fileName + ". Please try again!", ex);
@@ -60,14 +72,25 @@ public class FileStorageService {
     }
 
     public Resource loadFileAsResource(String fileName) {
+    	
         try {
-            Path filePath = this.fileStorageLocation.resolve(fileName).normalize();
+        	
+        	//Get the image from the repository
+        	Image image = imageRepository.findByfileName(fileName);
+        	
+        	//Get the file path property from the image
+        	Path filePath = Paths.get(image.getLocation());
+        	
+        	//turn that file path into a new resource to be returned
             Resource resource = new UrlResource(filePath.toUri());
+            
+            //return the resource if it exists, otherwise throw an exception
             if(resource.exists()) {
                 return resource;
             } else {
                 throw new MyFileNotFoundException("File not found " + fileName);
             }
+            
         } catch (MalformedURLException ex) {
             throw new MyFileNotFoundException("File not found " + fileName, ex);
         }
@@ -75,9 +98,11 @@ public class FileStorageService {
     
     public Boolean removeFile(String fileName) {
     	Boolean deleted = false;
+    	Image image = imageRepository.findByfileName(fileName);
     	try	{
     		Path filePath = this.fileStorageLocation.resolve(fileName).normalize();
     		deleted = Files.deleteIfExists(filePath);
+    		imageRepository.delete(image);
     	} catch (IOException ex) {
     		ex.printStackTrace();
     	}

@@ -1,7 +1,5 @@
 package com.sisyphusWeb.webService.model;
 
-import java.nio.file.Path;
-
 import javax.persistence.*;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -17,13 +15,13 @@ public class Image {
 	
 	private String fileName;
 	
-	private Path location;
+	private String location;
 	
 	public Image() {
 		
 	}
 	
-	public Image(String fileName, Path location) {
+	public Image(String fileName, String location) {
 		this.fileName = fileName;
 		this.location = location;
 	}
@@ -44,11 +42,11 @@ public class Image {
 		this.fileName = fileName;
 	}
 
-	public Path getLocation() {
+	public String getLocation() {
 		return location;
 	}
 
-	public void setLocation(Path targetLocation) {
+	public void setLocation(String targetLocation) {
 		this.location = targetLocation;
 	}
 }

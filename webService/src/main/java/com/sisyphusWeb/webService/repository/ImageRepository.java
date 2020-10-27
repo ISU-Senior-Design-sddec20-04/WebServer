@@ -6,5 +6,6 @@ import com.sisyphusWeb.webService.model.Image;
 
 @Repository
 public interface ImageRepository extends JpaRepository<Image, String>{
+	Image findByfileName(String fileName);
 	
 }

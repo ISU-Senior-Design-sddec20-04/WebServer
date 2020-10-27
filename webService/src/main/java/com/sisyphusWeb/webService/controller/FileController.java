@@ -73,6 +73,11 @@ public class FileController {
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
                 .body(resource);
     }
+    
+    @GetMapping("/")
+    public ResponseEntity<List<String>> getAllFiles() {
+    	return new ResponseEntity<>(fileStorageService.getAllFiles(), HttpStatus.OK);
+    }
 
     @DeleteMapping("/deleteFile/{fileName:.+}")
     public ResponseEntity<String> deleteFile(@PathVariable String fileName) {
@@ -80,6 +85,6 @@ public class FileController {
     	if(!isDeleted) {
     		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     	}
-    	return new ResponseEntity<>(fileName, HttpStatus.OK);
+    	return new ResponseEntity<>("Deleted file " + fileName, HttpStatus.OK);
     }
 }
