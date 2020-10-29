@@ -33,3 +33,4 @@ While IDEs are usually best to leave to developer preference, I recommend using 
 ## Frontend React Breakdown Example
 ![Frontend_React_Breakdown_Example](492_Frontend_React_Breakdown_Example.png?raw=true "Frontend React Breakdown Example")
 
+Note: Items like the settings icon will also likely be individual elements, but can also just be hardcoded in.
