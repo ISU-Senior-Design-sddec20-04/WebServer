@@ -20,3 +20,7 @@ While IDEs are usually best to leave to developer preference, I recommend using 
 - When creating and testing components, there's no reason to make full async requests to backend. Instead, point the repo API to fake data that you make yourself in another file.
 - Some really nifty chrome extensions for [React](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en "React") and [Redux](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd "Redux").
 - I'm keeping a quick refresher for JavaScript [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript "here").
+
+
+![Frontent_Page_Mockups](492_Frontent_Page_Mockups.png?raw=true "Frontent Page Mockups")
+![Frontent_React_Breakdown_Example](492_Frontent_React_Breakdown_Example.png?raw=true "Frontent React Breakdown Example")
