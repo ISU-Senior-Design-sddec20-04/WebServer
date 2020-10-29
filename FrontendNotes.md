@@ -24,11 +24,12 @@ While IDEs are usually best to leave to developer preference, I recommend using 
 <br/><br/>
 <br/><br/>
 
-![Frontent_Page_Mockups](492_Frontent_Page_Mockups.png?raw=true "Frontent Page Mockups")
-> Frontent Page Mockups
+## Frontend Page Mockups
+![Frontend_Page_Mockups](492_Frontend_Page_Mockups.png?raw=true "Frontend Page Mockups")
 
 <br/><br/>
 <br/><br/>
 
-![Frontent_React_Breakdown_Example](492_Frontent_React_Breakdown_Example.png?raw=true "Frontent React Breakdown Example")
-> Frontent React Breakdown Example
+## Frontend React Breakdown Example
+![Frontend_React_Breakdown_Example](492_Frontend_React_Breakdown_Example.png?raw=true "Frontend React Breakdown Example")
+
