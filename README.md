@@ -8,6 +8,9 @@ React is installed, updated, and run using [NodeJS](https://nodejs.org/en/ "Node
 
 Redux is also commonly used alongside React and, while extremely useful, will not be used for this project. For more information on what Redux is and how to use it, watch [this tutorial](https://www.youtube.com/watch?v=CVpUuw9XSjY&ab_channel=DevEd "this tutorial").
 
+## React Router
+React router is a helpful tool to implement multiple pages in an application. A short howto can be found [here](https://www.freecodecamp.org/news/react-router-in-5-minutes/ "React Router"), with a more complicated but concise video tutorial [here](https://www.youtube.com/watch?v=cKnc8gXn80Q&feature=emb_logo&ab_channel=ReactTraining "React Router").
+
 ## AJAX
 [AJAX](https://www.w3schools.com/whatis/whatis_ajax.asp "AJAX") is a technique for accessing webservers asynchronously and without updating the entire webpage. We will use this for populating components with data from backend. Some more information on how to use AJAX with React can be found [here](https://www.robinwieruch.de/react-fetching-data "here").
 
