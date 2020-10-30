@@ -1,0 +1,78 @@
+@import "../COLORS.css";
+
+
+.CurrentlyPlayingContainer {
+    display: flex;
+
+    border: 2px solid gray;
+    padding: 10px 10px 10px 10px;
+}
+
+.InfoContainer {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.ImageContainer {
+
+    max-width: 40%;
+}
+
+.OptionsContainer {
+    border: 2px solid gray;
+    padding: 10px 10px 10px 10px;
+}
+
+
+/*------------------------------------------------------------------------------*/
+                                    /* Track Info */
+
+.InfoText {
+
+    /*font-family: 'Arial';*/
+    font-size: 16px;
+    line-height: 16px;
+}
+
+
+
+.ProgressTitle {
+    margin-top: auto
+}
+
+.ProgressBarContainer {
+    margin: 0px 0px 0px 1px ;
+    max-width: 80%;
+}
+.ProgressBar{
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 100%;
+}
+.ProgressBar::-webkit-progress-bar{
+    background: #BBB;
+    color: #BBB;
+    /*box-shadow: 0 2px 7px rgba(0, 0, 0, 0.25) inset;*/
+}
+.ProgressBar::-webkit-progress-value{
+    background: var(--maincolor);
+    color: var(--maincolor);
+}
+
+
+/*------------------------------------------------------------------------------*/
+                                    /* Track Image */
+
+.TrackImage {
+    max-width: 100%;
+    max-height: 300px;
+    height: auto;
+    width: auto;
+}
+
+
+/*------------------------------------------------------------------------------*/
+                                    /* Track Options */

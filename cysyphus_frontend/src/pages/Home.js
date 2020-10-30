@@ -9,5 +9,4 @@ const Home = () => {
     );
 }
 
-//We're exporting this as 'home', which is good if this file has multiple exports
 export default Home;
