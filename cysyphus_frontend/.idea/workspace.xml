@@ -3,10 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="ef1cf332-1198-4bb3-abad-9d5559d88233" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/ChildProps.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/old-examples/ChildProps.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/ElementExample.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/old-examples/ElementExample.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/ExampleApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/old-examples/ExampleApp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/old-examples/Navigation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/MyTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/widgets/CurrentlyPlaying.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/CurrentlyPlaying.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/widgets_styling/CurrentlyPlaying.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets_styling/CurrentlyPlaying.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/widgets_styling/NavBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets_styling/NavBar.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,10 +74,11 @@
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Sean\Documents\-=- Programs -=-\CprE492_Frontend\cysyphus_frontend\src\APIs" />
       <recent name="C:\Users\Sean\Documents\-=- Programs -=-\CprE492_Frontend\cysyphus_frontend\src\examples" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Sean\Documents\-=- Programs -=-\CprE492_Frontend\cysyphus_frontend\src\examples" />
     </key>
   </component>
@@ -122,6 +130,7 @@
       <workItem from="1604004837494" duration="21629000" />
       <workItem from="1604085681391" duration="722000" />
       <workItem from="1604087222787" duration="9963000" />
+      <workItem from="1604106672932" duration="6846000" />
     </task>
     <servers />
   </component>
@@ -129,10 +138,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="178" key="#ESLint" timestamp="1604093218143">
+    <state x="543" y="201" key="#App.test.js" timestamp="1604107947284">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="178" key="#ESLint/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604093218143" />
+    <state x="543" y="201" key="#App.test.js/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604107947284" />
+    <state x="552" y="178" key="#ESLint" timestamp="1604107388867">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#ESLint/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604107388867" />
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604007569909">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -153,10 +166,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603931904369" />
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1604087222488">
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1604106678206">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604087222488" />
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604106678206" />
     <state x="677" y="328" key="jetbrains.nodejs.interpreters-dialog" timestamp="1603931902938">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

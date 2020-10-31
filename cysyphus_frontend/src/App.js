@@ -1,12 +1,14 @@
 import React from 'react';
-import {BrowserRouter, NavLink, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+
+import {User} from "./datatypes/User";
 
 import NavBar from './widgets/NavBar';
 import Home from "./pages/Home";
 import MyTableFrame from "./pages/MyTable";
 
 
-
+const user = new User(123, "Sample User");
 
 function App() {
         return (
@@ -29,7 +31,7 @@ function App() {
 }
 
 function packageTableParams(){
-    return(<MyTableFrame/>)
+    return(<MyTableFrame user={user} />)
 }
 
 export default App;

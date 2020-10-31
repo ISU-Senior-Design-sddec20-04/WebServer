@@ -6,6 +6,7 @@
 }
 
 .LinkStyle, .LoginButton {
+    background-color: var(--maincolor);
     color: var(--accentcolor);
     cursor: pointer;
 

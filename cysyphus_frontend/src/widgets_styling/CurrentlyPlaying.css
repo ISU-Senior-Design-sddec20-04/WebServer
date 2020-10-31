@@ -1,5 +1,10 @@
 @import "../COLORS.css";
 
+* {
+    font-family:serif !important;
+
+}
+
 
 .CurrentlyPlayingContainer {
     display: flex;
