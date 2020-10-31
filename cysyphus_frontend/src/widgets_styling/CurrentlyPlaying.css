@@ -1,10 +1,5 @@
 @import "../COLORS.css";
 
-* {
-    font-family:serif !important;
-
-}
-
 
 .CurrentlyPlayingContainer {
     display: flex;
@@ -21,13 +16,13 @@
 }
 
 .ImageContainer {
-
     max-width: 40%;
 }
 
-.OptionsContainer {
+.CurrentlyPlayingOptionsContainer {
     border: 2px solid gray;
     padding: 10px 10px 10px 10px;
+    display: flex;
 }
 
 
@@ -81,3 +76,18 @@
 
 /*------------------------------------------------------------------------------*/
                                     /* Track Options */
+
+.OptionsButton, .LoopButton {
+    display: flex;
+    align-items: center;
+
+    padding: 0px 4px 0px 0px;
+    height: 30px;
+    width: min-content;
+
+    cursor: pointer;
+}
+
+.LoopButton {
+    margin-left: auto;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../widgets_styling/CurrentlyPlaying.css'
 import {Repository} from "../APIs/Repository";
+import {Pause, PlayArrow, SkipNext, Loop} from "@material-ui/icons";
 
 
 export class CurrentlyPlaying extends React.Component {
@@ -11,8 +12,8 @@ export class CurrentlyPlaying extends React.Component {
         this.user = props.user;
         this.repo = new Repository();
 
+        //These are temporary example calls, later will be on timer for api
         this.state = {
-            //track: new Track("Unknown", "Unknown", null),
             track: this.repo.getCurrentTrack(this.user.id),
             preview: this.repo.getCurrentTrackPreview(this.user.id),
             progress: this.repo.getCurrentTrackProgress(this.user.id),
@@ -26,7 +27,6 @@ export class CurrentlyPlaying extends React.Component {
     render() {
         return(
             <div>
-                <h1>{this.props.example}</h1>
                 <div className={'CurrentlyPlayingContainer'}>
                     <div className={'InfoContainer'}>
                         <span className={'InfoText'}>
@@ -47,10 +47,10 @@ export class CurrentlyPlaying extends React.Component {
                 </div>
 
 
-                <div className={'OptionsContainer'}>
+                <div className={'CurrentlyPlayingOptionsContainer'}>
                     <PausePlayButton playing={this.state.playing}/>
-                    <span className="symbol">⏭ Skip</span>
-                    <span className="symbol">🔁</span>
+                    <span className={'OptionsButton'}> <SkipNext /> <p>Skip</p> </span>
+                    <span className={'LoopButton'}> <Loop/> </span>
                 </div>
             </div>
         )
@@ -75,8 +75,8 @@ export class CurrentlyPlaying extends React.Component {
 }
 
 function PausePlayButton(props){
-    if(!props.playing){
-        return <span>&#10074;&#10074; Pause</span>
-    }
-    return <span>&#x25B6; Play</span>
+    if(props.playing)
+        return <span className={'OptionsButton'}> <Pause/> <p>Pause</p> </span>
+    return <span className={'OptionsButton'}> <PlayArrow/> <p>Play</p> </span>
+    //return <span><FontAwesomeIcon icon={faPlay} /> Play </span>
 }

@@ -1,0 +1,57 @@
+@import "../COLORS.css";
+
+.ListContainer {
+    border: 2px solid gray;
+    height:250px;
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    overflow:hidden;
+    overflow-y:scroll;
+}
+ul li {
+    border: 1px solid lightgray;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+
+}
+.QueueItemButton, .QueueItemDragHandle{
+    padding: 0px 4px 0px 0px;
+
+    cursor: pointer;
+}
+.QueueItemDragHandle {
+    margin-left: auto;
+}
+
+
+
+.OptionsContainer {
+    border: 2px solid gray;
+    padding: 10px 10px 10px 10px;
+
+    display: flex;
+    align-items: center;
+}
+.QueueAddTrack {
+    background: lightgray;
+    text-align: center;
+
+    width:100%;
+    line-height: 25px;
+    cursor: pointer;
+}
+.QueueLoopButton {
+    margin-left: 4px;
+    line-height: 0;
+    cursor: pointer;
+}
+.ShuffleButton {
+    margin-left: 4px;
+    line-height: 0;
+    cursor: pointer;
+}

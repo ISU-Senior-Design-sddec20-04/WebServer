@@ -1,5 +1,6 @@
 import React from 'react';
 import {CurrentlyPlaying} from "../widgets/CurrentlyPlaying";
+import {Queue} from "../widgets/Queue";
 import '../pages_styling/MyTable.css'
 
 
@@ -10,13 +11,13 @@ const MyTableFrame = (props) => {
             <br/>
 
             <div className={'CurrentlyPlayingWrapper'}>
-                <h3>Currently Playing</h3>
-                <CurrentlyPlaying example={props.example} user={props.user}/>
+                <h3 style={{marginBottom: '4px'}}>Currently Playing</h3>
+                <CurrentlyPlaying user={props.user}/>
             </div>
             <br/>
             <div className={'QueueWrapper'}>
-                <h3>Queue</h3>
-                <p>This is where the queue will be</p>
+                <h3 style={{marginBottom: '4px'}}>Queue</h3>
+                <Queue user={props.user}/>
             </div>
         </div>
     )
