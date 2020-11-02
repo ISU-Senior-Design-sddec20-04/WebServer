@@ -14,7 +14,28 @@ export class CommunityTrackItem extends React.Component {
         this.state = {
             favorited: props.favorited
         }
+
+        this.setFav = props.setFav;
+
+        this.toggleFav = this.toggleFav.bind(this);
+        this.queueTrack = this.queueTrack.bind(this);
+        this.downloadTrack = this.downloadTrack.bind(this);
     }
+    toggleFav(){
+        const currentFav = this.state.favorited;
+        this.setState({favorited: !currentFav});
+        this.setFav(this.track.id, !currentFav);
+
+        Repository.setUserFavoritedTrack(this.user.id, this.track.id, !currentFav);
+    }
+    queueTrack(){
+        Repository.queueTrack(this.user.id, this.track.id)
+    }
+    downloadTrack(){
+        //TODO in Track.js build a function to convert it to a .thr file
+    }
+
+
     render() {
         return(
             <li className={'CTItem'}>
@@ -26,9 +47,11 @@ export class CommunityTrackItem extends React.Component {
                 </div>
 
                 <div className={'CTButtons'}>
-                    <Favorited className={'CTItemFavBtn'} favorited={this.state.favorited}/>
-                    <p className={'CTItemQueueBtn'}>Queue</p>
-                    <p className={'CTItemDownloadBtn'}>Download</p>
+                    <button onClick={this.toggleFav} className={'CTItemFavBtn'}>
+                        <Favorited className={'CTItemFavBtn'} favorited={this.state.favorited}/>
+                    </button>
+                    <button className={'CTItemQueueBtn'} onClick={this.queueTrack}>Queue</button>
+                    <button className={'CTItemDownloadBtn'} onClick={this.downloadTrack}>Download</button>
                 </div>
             </li>
         )

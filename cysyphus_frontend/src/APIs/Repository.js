@@ -2,6 +2,7 @@ import {Track} from "../datatypes/Track";
 
 
 //TODO actually call backend
+//TODO most of these should be authenticated requests
 export class Repository {
 
     static getTrack(trackID){
@@ -48,7 +49,10 @@ export class Repository {
     static getUserFavorites(userID){
         return this.sampleFavorites;
     }
-    static toggleUserFavoritedTrack(userID, trackID){
+    static setUserFavoritedTrack(userID, trackID, favorited){    //favorited is true/false
+        //do something
+    }
+    static queueTrack(userID, trackID){
         //do something
     }
 

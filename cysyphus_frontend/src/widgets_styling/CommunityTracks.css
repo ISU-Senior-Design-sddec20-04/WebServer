@@ -35,11 +35,14 @@
 }
 .CTSearchFav {
     margin: 0 8px 0 8px;
+    padding: 2px 0px 2px 0px;
+    vertical-align: middle;
     transform: scale(1.3);
-    cursor: pointer;
 }
 .CTSearchSort {
     width: 100px;
+    padding-left: 4px;
+    font-size: 18px;
 }
 
 
@@ -82,15 +85,19 @@
     margin-left: 10px;
 }
 .CTItemFavBtn {
+    border: none;
+    padding: 0;
     cursor: pointer;
     margin-top: auto;
     margin-bottom: 0px;
-    transform: scale(1.3);
+    transform: scale(1.2);
+
 }
 .CTItemQueueBtn {
     border: 1px solid gray;
     background: lightgray;
     text-align: center;
+    font-size: 16px;
     cursor: pointer;
 
     width: 100%;
@@ -103,6 +110,7 @@
     border: 1px solid gray;
     background: lightgray;
     text-align: center;
+    font-size: 16px;
     cursor: pointer;
 
     width: 100%;

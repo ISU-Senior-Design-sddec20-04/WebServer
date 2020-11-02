@@ -12,6 +12,7 @@ const CommunityFrame = (props) => {
                 <h1 style={{marginBottom: '4px', textAlign: 'center'}}>Community Tracks</h1>
                 <CommunityTracks user={props.user}/>
             </div>
+            <br/>
 
             <div className={'UploadNewWrapper'}>
                 <h2 style={{marginBottom: '4px', textAlign: 'center'}}>Upload New Track</h2>
