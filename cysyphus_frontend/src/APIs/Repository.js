@@ -12,15 +12,7 @@ export class Repository {
     }
 
     static getAllTracks(){
-        return [new Track(1, "Track1", "God", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
-            new Track(12, "Track2", "Also God", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
-            new Track(13, "Track3", "Still God", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
-            new Track(4, "Track4", "Probably God", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
-            new Track(5, "Track5", "God made this one", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
-            new Track(6, "Track6", "Him", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
-            new Track(7, "Track7", "Allah", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
-            new Track(8, "Track8", "Big G.", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
-            new Track(9, "Track9", "Man upstairs", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}])]
+        return this.sampleTrackList;
     }
     //This will be sorted by track ID
     static getAllPreviews(){
@@ -46,26 +38,37 @@ export class Repository {
     }
 
     static getQueue(userID){
-        const trackList = [new Track(1, "Track1", "God", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
-            new Track(2, "Track2", "Also God", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
-            new Track(3, "Track3", "Still God", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
-            new Track(4, "Track4", "Probably God", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
-            new Track(5, "Track5", "God made this one", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
-            new Track(6, "Track6", "Him", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
-            new Track(7, "Track7", "Allah", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
-            new Track(8, "Track8", "Big G.", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
-            new Track(9, "Track9", "Man upstairs", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}])]
-
-        return trackList.sort((a, b) => (a.id > b.id) ? 1 : -1)
+        return this.sampleTrackList.sort((a, b) => (a.id > b.id) ? 1 : -1)
     }
     static isQueueLooping(userID){
         return false;
     }
 
-
-    static didUserFavoriteTrack(userID, trackID){
-        return false;
+    //This should just be a list of track ids
+    static getUserFavorites(userID){
+        return this.sampleFavorites;
     }
+    static toggleUserFavoritedTrack(userID, trackID){
+        //do something
+    }
+
+
+
+
+    static sampleTrackList = [new Track(1, "Track1", "God", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
+        new Track(2, "Track2", "Also God", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
+        new Track(3, "Track3", "Still God", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
+        new Track(4, "Track4", "Probably God", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
+        new Track(5, "Track5", "God made this one", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
+        new Track(16, "Track6", "Him", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
+        new Track(17, "Track7", "Allah", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
+        new Track(8, "Track8", "Big G.", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}]),
+        new Track(9, "Track9", "Man upstairs", [{x:45, y:64}, {x:56, y:98}, {x:23, y:44}])];
+
+    //Just a set of track IDs
+    static sampleFavorites = new Set([3, 5, 6, 9]);
+
+
 
 
 }
