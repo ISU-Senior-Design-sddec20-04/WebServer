@@ -11,12 +11,11 @@ export class Queue extends React.Component {
         super(props);
 
         this.user = props.user;
-        this.repo = new Repository();
 
         this.state = {
-            trackList: this.repo.getQueue(this.user.id),
+            trackList: Repository.getQueue(this.user.id),
 
-            looping: this.repo.isQueueLooping(this.user.id),
+            looping: Repository.isQueueLooping(this.user.id),
         }
     }
 

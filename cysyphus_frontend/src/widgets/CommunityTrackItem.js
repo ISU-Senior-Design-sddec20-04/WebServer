@@ -10,10 +10,9 @@ export class CommunityTrackItem extends React.Component {
         this.track = props.track;
         this.preview = props.preview;
         this.user = props.user;
-        this.repo = new Repository();
 
         this.state = {
-            favorited: this.repo.didUserFavoriteTrack(0, this.track.id)
+            favorited: Repository.didUserFavoriteTrack(0, this.track.id)
         }
     }
     render() {

@@ -10,17 +10,16 @@ export class CurrentlyPlaying extends React.Component {
         super(props);
 
         this.user = props.user;
-        this.repo = new Repository();
 
         //These are temporary example calls, later will be on timer for api
         this.state = {
-            track: this.repo.getCurrentTrack(this.user.id),
-            preview: this.repo.getTrackPreview(0),
-            progress: this.repo.getCurrentTrackProgress(this.user.id),
+            track: Repository.getCurrentTrack(this.user.id),
+            preview: Repository.getTrackPreview(0),
+            progress: Repository.getCurrentTrackProgress(this.user.id),
 
-            playing: this.repo.isTrackPlaying(this.user.id),
-            looping: this.repo.isTrackLooping(this.user.id),
-            eraseBefore: this.repo.isTrackEraseBefore(this.user.id),
+            playing: Repository.isTrackPlaying(this.user.id),
+            looping: Repository.isTrackLooping(this.user.id),
+            eraseBefore: Repository.isTrackEraseBefore(this.user.id),
         }
     }
 
