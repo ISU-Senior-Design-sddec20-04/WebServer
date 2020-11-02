@@ -12,7 +12,7 @@ export class CommunityTrackItem extends React.Component {
         this.user = props.user;
 
         this.state = {
-            favorited: Repository.didUserFavoriteTrack(0, this.track.id)
+            favorited: props.favorited
         }
     }
     render() {
@@ -21,7 +21,7 @@ export class CommunityTrackItem extends React.Component {
                 <img src={this.preview} alt={'Track Preview'} className={'CTImage'}/>
 
                 <div className={'CTInfo'}>
-                    <h2>{this.track.title}</h2>
+                    <h2>{this.track.name}</h2>
                     <p>By {this.track.author}</p>
                 </div>
 

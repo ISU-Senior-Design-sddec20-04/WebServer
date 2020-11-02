@@ -1,12 +1,9 @@
 export class Track {
     constructor(id, name, author, track) {
         this.id = id;
-        this.title = name;
+        this.name = name;
         this.author = author;
         this.track = track;
-
-        this.state = {
-            eraseBefore: true
-        }
+        this.length = track.length;
     }
 }
