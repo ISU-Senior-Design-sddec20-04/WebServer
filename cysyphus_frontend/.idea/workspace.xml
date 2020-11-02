@@ -5,6 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Community.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Community.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages_styling/Community.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages_styling/Community.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/widgets/TrackUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/TrackUpload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/widgets_styling/TrackUpload.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets_styling/TrackUpload.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +129,7 @@
       <workItem from="1604106672932" duration="6846000" />
       <workItem from="1604173660718" duration="13076000" />
       <workItem from="1604257992920" duration="17188000" />
-      <workItem from="1604280139526" duration="1089000" />
+      <workItem from="1604280139526" duration="1920000" />
     </task>
     <servers />
   </component>

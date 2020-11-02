@@ -1,33 +1,25 @@
 @import "../COLORS.css";
 
 .CommunityWrapper {
-
     max-width: 1000px;
     margin: 0px auto 0px auto;
 }
 
 .CommunityTracksWrapper {
-
     margin: 0px 10px 0px 10px;
 }
 
 .UploadNewWrapper {
-
     margin: 0px 10px 0px 10px;
+    align-items: center;
 }
 
 
 /*------------------------------------------------------------------------------*/
                                     /* Uploader */
 
-.CTrackUploaderForm {
-    width: 100%;
-}
-.CFileUploader {
-    font-size: 18px;
-    width: 100%;
-}
-.CFileSubmit {
-    font-size: 18px;
-    margin-top: 4px;
+
+.UploadNewButtonWrapper {
+    width: fit-content;
+    margin: auto;
 }

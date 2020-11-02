@@ -1,11 +1,11 @@
 import React from 'react';
-import '../pages_styling/Community.css'
+import '../widgets_styling/TrackUpload.css'
 
 export const TrackUpload = (props) => {
     return(
-        <form action="/" className={'CTrackUploaderForm'}>
-            <input type="file" className={'CFileUploader'}/><br/>
-            <input type="submit" className={'CFileSubmit'}/>
-        </form>
+        <div className="upload-btn-wrapper">
+            <button className="btn">Upload a file</button>
+            <input type="file" name="myfile"/>
+        </div>
     )
 }
