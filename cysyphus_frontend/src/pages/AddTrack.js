@@ -1,22 +1,22 @@
-import React from 'react';
 
-//This needs to be capitalized
-const ExtraElement = () => {
+import React, { useState } from "react";
+import ImageUploader from "react-images-upload";
+
+const AddTrack = props => {
+    const [pictures, setPictures] = useState([]);
+
+    const onDrop = picture => {
+        setPictures([...pictures, picture]);
+    };
     return (
-        <p>Hey look, this is a nested element!</p>
+        <ImageUploader
+            {...props}
+            withIcon={true}
+            onChange={onDrop}
+            imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+            maxFileSize={5242880}
+        />
     );
 };
 
-
-const elementExample = () => {
-    return (
-        <div>
-            <h1>Element Example</h1>
-            <p>This is elementExample's body content</p>
-            <p>This one is a little more complicated</p>
-            <ExtraElement/>
-        </div>
-    );
-}
-
-export default elementExample;
+export default AddTrack;

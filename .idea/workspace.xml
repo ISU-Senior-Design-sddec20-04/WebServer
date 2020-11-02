@@ -20,12 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cafa6cc9-f57b-4965-a77d-36dd54b494f1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/AddTrack.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/ImageUpload.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/Login.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/SignUp.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/public/CySyphusHeader.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/public/ExampleInOut.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/pages/AddTrack.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/AddTrack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/pages/ImageUpload.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/ImageUpload.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/pages/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/Navigation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,15 +67,13 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -88,7 +88,9 @@
       <option name="presentableId" value="Default" />
       <updated>1603941426359</updated>
       <workItem from="1603941433718" duration="10430000" />
-      <workItem from="1604175649091" duration="7681000" />
+      <workItem from="1604175649091" duration="8181000" />
+      <workItem from="1604288468287" duration="556000" />
+      <workItem from="1604289265068" duration="4373000" />
     </task>
     <servers />
   </component>

@@ -7,6 +7,8 @@ import NaVbAr from './pages/Navigation';
 import {home} from './pages/Home';
 import elementExample from './pages/ElementExample';
 import ChildProps from "./pages/ChildProps";
+import ImageUpload from "./pages/ImageUpload.component"
+import AddTrack from "./pages/AddTrack";
 
 
 
@@ -31,6 +33,7 @@ function App() {
                                 </ChildProps>
                             )}
                         }/>
+                        <Route path ="/AddTrack" component={AddTrack} />
 
                     </Switch>
 
