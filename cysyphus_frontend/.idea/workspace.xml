@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ef1cf332-1198-4bb3-abad-9d5559d88233" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/APIs/Repository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/APIs/Repository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Community.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Community.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/CommunityTracks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/CommunityTracks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/CurrentlyPlaying.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/CurrentlyPlaying.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/Queue.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/Queue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets_styling/Queue.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets_styling/Queue.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages_styling/Community.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages_styling/Community.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +29,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -132,6 +127,7 @@
       <workItem from="1604106672932" duration="6846000" />
       <workItem from="1604173660718" duration="13076000" />
       <workItem from="1604257992920" duration="17188000" />
+      <workItem from="1604280139526" duration="1089000" />
     </task>
     <servers />
   </component>
@@ -167,10 +163,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604267204350" />
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1604257997489">
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1604280151869">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604257997489" />
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604280151869" />
     <state x="677" y="328" key="jetbrains.nodejs.interpreters-dialog" timestamp="1603931902938">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
