@@ -11,18 +11,17 @@ export class CommunityTracks extends React.Component {
         this.user = props.user;
 
         this.validSorts = {
-            BYID: 'ID',
-            BYNAME: 'Name',
+            BYID: 'id',
+            BYNAME: 'title',
             BYLENGTH: 'Length',
         };
 
         this.state = {
-            trackList: [],      //This list is sorted by Track ID
-            sortedTracklist: [],
+            searchedTracks: [],
 
             search: "",
             searchFavsOnly: false,
-            searchSort: this.validSorts.BYID
+            searchSort: this.validSorts.BYNAME
         };
 
         this.handleSearch = this.handleSearch.bind(this);
@@ -34,8 +33,10 @@ export class CommunityTracks extends React.Component {
         const trackList = Repository.getAllTracks(this.user.id);
         const sortedTracklist = this.sortTracks(trackList);
 
-        this.setState({trackList: trackList});
-        this.setState({sortedTracklist: sortedTracklist});
+        this.trackList = sortedTracklist;
+        this.setState({searchedTracks: sortedTracklist});
+
+        this.previewList = Repository.getAllPreviews(); //This list is sorted by Track ID
     }
 
     sortTracks(trackList){
@@ -48,7 +49,16 @@ export class CommunityTracks extends React.Component {
                 return trackList.sort((a, b) => (a.track.length > b.track.length) ? 1 : -1);
         }
     }
+    searchTracks(){
+        const trackList = this.trackList;
+        const sorted = trackList.filter( track => track[this.validSorts.BYNAME].includes(this.state.search)
+        );
 
+        return sorted
+    }
+    searchTracksFor(trackList, searchCriteria){
+        return trackList.includes(track => track.name.includes(this.state.search));
+    }
 
 
 
@@ -63,6 +73,7 @@ export class CommunityTracks extends React.Component {
 
     handleSearch(event){
         this.setState({search: event.target.value})
+        this.setState({searchedTracks: this.searchTracksFor(this.trackList, this.state.search)})
     }
     toggleSortFav(){
         this.setState({searchFavsOnly: !this.state.searchFavsOnly})
@@ -89,7 +100,7 @@ export class CommunityTracks extends React.Component {
                 </div>
 
                 <ul className={'CTList'}>
-                    <CommunityTrackList trackList={this.state.trackList} user={this.user}/>
+                    <CommunityTrackList trackList={this.state.searchedTracks} user={this.user}/>
                 </ul>
             </div>
         )
