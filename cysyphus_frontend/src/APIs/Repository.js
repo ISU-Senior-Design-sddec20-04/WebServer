@@ -59,6 +59,15 @@ export class Repository {
         return false;
     }
 
+    getTeamMemberPicture(name){
+        var picSrc;
+        switch (name){
+            default:
+                picSrc = "Sam";
+                break;
+        }
+        return picSrc;
+    }
 
 
     didUserFavoriteTrack(userID, trackID){

@@ -22,7 +22,7 @@ const Home = (props) => {
 
                 <div>
                         <h1 style={{marginBottom: '4px', textAlign: 'center'}}>Samuel Christianson</h1>
-                        <p style={{marginBottom: '4px', textAlign: 'center'}}>Photo Here</p>
+
                         <p style={{marginBottom: '4px', textAlign: 'center'}}>Text here</p>
                 </div>
 
