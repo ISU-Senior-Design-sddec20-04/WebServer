@@ -3,16 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ef1cf332-1198-4bb3-abad-9d5559d88233" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/APIs/Repository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/APIs/Repository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COLORS.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/COLORS.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/datatypes/Track.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/datatypes/Track.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/old-examples/ChildProps.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/old-examples/ChildProps.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MyTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Community.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Community.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/widgets/CommunityTracks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/CommunityTracks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/widgets/CurrentlyPlaying.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/CurrentlyPlaying.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/widgets/Queue.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/Queue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets_styling/CurrentlyPlaying.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets_styling/CurrentlyPlaying.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/widgets_styling/Queue.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets_styling/Queue.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +67,9 @@
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
   </component>
   <component name="RecentsManager">
@@ -130,7 +130,8 @@
       <workItem from="1604085681391" duration="722000" />
       <workItem from="1604087222787" duration="9963000" />
       <workItem from="1604106672932" duration="6846000" />
-      <workItem from="1604173660718" duration="10709000" />
+      <workItem from="1604173660718" duration="13076000" />
+      <workItem from="1604257992920" duration="17188000" />
     </task>
     <servers />
   </component>
@@ -162,14 +163,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="540" y="263" key="IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604019676656" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1603931904369">
+    <state x="461" y="162" key="SettingsEditor" timestamp="1604267204350">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603931904369" />
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1604174105723">
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604267204350" />
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1604257997489">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604174105723" />
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604257997489" />
     <state x="677" y="328" key="jetbrains.nodejs.interpreters-dialog" timestamp="1603931902938">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -178,9 +179,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604010310417" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1604025708117">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1604265084161">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604025708117" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604265084161" />
   </component>
 </project>

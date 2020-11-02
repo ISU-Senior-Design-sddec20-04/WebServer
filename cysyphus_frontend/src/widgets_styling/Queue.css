@@ -11,13 +11,12 @@
     overflow:hidden;
     overflow-y:scroll;
 }
-ul li {
+ul.ListContainer li {
     border: 1px solid lightgray;
     height: 30px;
 
     display: flex;
     align-items: center;
-
 }
 .QueueItemButton, .QueueItemDragHandle{
     padding: 0px 4px 0px 0px;

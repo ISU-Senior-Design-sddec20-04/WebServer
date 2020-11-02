@@ -25,7 +25,7 @@ export class Queue extends React.Component {
             <div>
                 <div className={'QueueContainer'}>
                     <ul className={'ListContainer'}>
-                        <TrackList trackList={this.state.trackList}/>
+                        <QueueTrackList trackList={this.state.trackList}/>
                     </ul>
                 </div>
 
@@ -35,15 +35,12 @@ export class Queue extends React.Component {
                     <Icon path={mdiShuffleVariant} title="Shuffle Queue" size={1} className={'ShuffleButton'}/>
                 </div>
             </div>
-
         )
     }
 }
 
 
-
-
-function TrackList(props){
+function QueueTrackList(props){
     return props.trackList.map((track) =>
         <QueueItem key={track.id} track={track}/>
     );

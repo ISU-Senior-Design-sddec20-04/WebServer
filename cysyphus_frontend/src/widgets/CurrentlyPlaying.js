@@ -15,7 +15,7 @@ export class CurrentlyPlaying extends React.Component {
         //These are temporary example calls, later will be on timer for api
         this.state = {
             track: this.repo.getCurrentTrack(this.user.id),
-            preview: this.repo.getCurrentTrackPreview(this.user.id),
+            preview: this.repo.getTrackPreview(0),
             progress: this.repo.getCurrentTrackProgress(this.user.id),
 
             playing: this.repo.isTrackPlaying(this.user.id),
@@ -23,6 +23,22 @@ export class CurrentlyPlaying extends React.Component {
             eraseBefore: this.repo.isTrackEraseBefore(this.user.id),
         }
     }
+
+    togglePlaying = () => {
+        this.setState({playing: !this.state.playing});
+    };
+
+    toggleLooping = () => {
+        this.setState({looping: !this.state.looping});
+    };
+
+    toggleEraseBefore = () => {
+        this.setState({eraseBefore: !this.state.eraseBefore});
+    };
+
+
+    //-----------------------------------------------------------------------------------------------------------------
+
 
     render() {
         return(
@@ -35,7 +51,7 @@ export class CurrentlyPlaying extends React.Component {
                         </span>
 
 
-                        <label htmlFor="file" className={"ProgressTitle"}>Track progress:</label>
+                        <label className={"ProgressTitle"}>Track progress:</label>
                         <span className={'ProgressBarContainer'}>
                             <progress value={this.state.progress} max="100" className={'ProgressBar'}/>
                         </span>
@@ -55,23 +71,6 @@ export class CurrentlyPlaying extends React.Component {
             </div>
         )
     }
-
-
-
-
-    //-----------------------------------------------------------------------------------------------------------------
-
-    togglePlaying = () => {
-        this.setState({playing: !this.state.playing});
-    };
-
-    toggleLooping = () => {
-        this.setState({looping: !this.state.looping});
-    };
-
-    toggleEraseBefore = () => {
-        this.setState({eraseBefore: !this.state.eraseBefore});
-    };
 }
 
 function PausePlayButton(props){
