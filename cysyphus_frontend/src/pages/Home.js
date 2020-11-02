@@ -6,6 +6,7 @@ const Home = (props) => {
                 <div>
                         <h1 style={{marginBottom: '4px', textAlign: 'center'}}>Home Header</h1>
                 </div>
+            <img src={process.env.PUBLIC_URL + '/GroupMembers/Sam.jpg'}/>
 
                 <div id="twitch-embed"></div>
                         <script src="https://embed.twitch.tv/embed/v1.js"></script>
