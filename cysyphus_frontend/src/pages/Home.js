@@ -28,42 +28,54 @@ const Home = (props) => {
 
                     <div className={'HomeWrapper'}>
                             <h1 style={{marginBottom: '4px', textAlign: 'center'}}>Samuel Christianson</h1>
-                            <img src={process.env.PUBLIC_URL + '/Assets/GroupMembers/Sam.jpg'} alt={"Team Member"}/>
+                            <div className={'HomeWrapper'}>
+                                <img src={process.env.PUBLIC_URL + '/Assets/GroupMembers/Sam.jpg'} alt={"Team Member"}/>
+                            </div>
                             <p style={{marginBottom: '4px', textAlign: 'center'}}>Text here</p>
                     </div>
 
 
                     <div className={'HomeWrapper'}>
                             <h1 style={{marginBottom: '4px', textAlign: 'center'}}>Morgan Funk</h1>
-                            <img src={process.env.PUBLIC_URL + '/Assets/GroupMembers/Morgan.jpg'} alt={"Team Member"}/>
+                            <div className={'HomeWrapper'}>
+                                <img src={process.env.PUBLIC_URL + '/Assets/GroupMembers/Morgan.jpg'} alt={"Team Member"}/>
+                            </div>
                             <p style={{marginBottom: '4px', textAlign: 'center'}}>Text here</p>
                     </div>
 
 
                     <div className={'HomeWrapper'}>
                             <h1 style={{marginBottom: '4px', textAlign: 'center'}}>Sean Gordon</h1>
-                            <img src={process.env.PUBLIC_URL + '/Assets/GroupMembers/Sean2.jpg'} alt={"Team Member"}/>
+                            <div className={'HomeWrapper'}>
+                                <img src={process.env.PUBLIC_URL + '/Assets/GroupMembers/Sean2.jpg'} alt={"Team Member"}/>
+                            </div>
                             <p style={{marginBottom: '4px', textAlign: 'center'}}>Text here</p>
                     </div>
 
 
                     <div className={'HomeWrapper'}>
                             <h1 style={{marginBottom: '4px', textAlign: 'center'}}>Daniel Laracuenta</h1>
-                            <img src={process.env.PUBLIC_URL + '/Assets/GroupMembers/Daniel2.jpg'} alt={"Team Member"}/>
+                            <div className={'HomeWrapper'}>
+                                <img src={process.env.PUBLIC_URL + '/Assets/GroupMembers/Daniel2.jpg'} alt={"Team Member"}/>
+                            </div>
                             <p style={{marginBottom: '4px', textAlign: 'center'}}>Text here</p>
                     </div>
 
 
                     <div className={'HomeWrapper'}>
                             <h1 style={{marginBottom: '4px', textAlign: 'center'}}>Aaron Lawrence</h1>
-                            <img src={process.env.PUBLIC_URL + '/Assets/GroupMembers/Aaron.jpg'} alt={"Team Member"}/>
+                            <div className={'HomeWrapper'}>
+                                <img src={process.env.PUBLIC_URL + '/Assets/GroupMembers/Aaron.jpg'} alt={"Team Member"}/>
+                            </div>
                             <p style={{marginBottom: '4px', textAlign: 'center'}}>Text here</p>
                     </div>
 
 
                     <div className={'HomeWrapper'}>
                             <h1 style={{marginBottom: '4px', textAlign: 'center'}}>William Maston</h1>
-                            <img src={process.env.PUBLIC_URL + '/Assets/GroupMembers/Will.jpg'} alt={"Team Member"}/>
+                            <div className={'HomeWrapper'}>
+                                <img src={process.env.PUBLIC_URL + '/Assets/GroupMembers/Will.jpg'} alt={"Team Member"}/>
+                            </div>
                             <p style={{marginBottom: '4px', textAlign: 'center'}}>Text here</p>
                     </div>
 
