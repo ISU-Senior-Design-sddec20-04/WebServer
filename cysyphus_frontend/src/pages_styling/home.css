@@ -1,0 +1,6 @@
+@import "../COLORS.css";
+
+.HomeWrapper {
+    max-width: 1000px;
+    margin: 2px auto 2px auto;
+}
