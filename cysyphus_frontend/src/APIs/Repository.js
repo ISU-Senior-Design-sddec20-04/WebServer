@@ -1,4 +1,4 @@
-import {Track} from "../datatypes/Track";
+
 
 //TODO actually call backend
 //TODO most of these should be authenticated requests
@@ -25,6 +25,8 @@ export class Repository {
     }
 
 
+    //-----------------------------------------------------------------------------------------------------------------
+
     static getCurrentTrack(userID){
         const incomingJSON = this.sampleTrackJson;
         return JSON.parse(incomingJSON)
@@ -35,16 +37,29 @@ export class Repository {
     }
 
 
-    static isTrackPlaying(userID){
+    static setCurrentTrackPlaying(userID, playing){
+
+    }
+    static isCurrentTrackPlaying(userID){
         return true;
     }
-    static isTrackLooping(userID){
-        return false;
+
+    static setCurrentTrackLooping(userID, looping){
+
     }
-    static isTrackEraseBefore(userID){
+    static isCurrentTrackLooping(userID){
         return false;
     }
 
+    static setCurrentTrackEraseBefore(userID, erase){
+
+    }
+    static isCurrentTrackEraseBefore(userID){
+        return false;
+    }
+
+
+    //-----------------------------------------------------------------------------------------------------------------
 
     static getQueue(userID){
         const incomingJSON = this.sampleTrackListJson;
@@ -98,4 +113,5 @@ export class Repository {
 
         return str;     //This becomes '[["1", "data:im..."],["2", "data:im..."],...,["9", "data:im..."]]'
     }
+	//TODO turn the above from "\"" to '"'
 }
