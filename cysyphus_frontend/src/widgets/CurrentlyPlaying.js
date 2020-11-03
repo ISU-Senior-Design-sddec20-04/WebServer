@@ -45,7 +45,7 @@ export class CurrentlyPlaying extends React.Component {
                 <div className={'CurrentlyPlayingContainer'}>
                     <div className={'InfoContainer'}>
                         <span className={'InfoText'}>
-                            <p>{this.state.track.title}</p>
+                            <p>{this.state.track.name}</p>
                             <p>By {this.state.track.author}</p>
                         </span>
 
@@ -76,5 +76,4 @@ function PausePlayButton(props){
     if(props.playing)
         return <span className={'OptionsButton'}> <Pause/> <p>Pause</p> </span>
     return <span className={'OptionsButton'}> <PlayArrow/> <p>Play</p> </span>
-    //return <span><FontAwesomeIcon icon={faPlay} /> Play </span>
 }

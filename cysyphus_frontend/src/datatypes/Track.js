@@ -4,6 +4,5 @@ export class Track {
         this.name = name;
         this.author = author;
         this.track = track;
-        this.length = track.length;
     }
 }
