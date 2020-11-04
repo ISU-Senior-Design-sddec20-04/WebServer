@@ -1,6 +1,9 @@
 import React from 'react';
 import '../pages_styling/home.css'
 
+var option = {channel: "USERNAME", width: 640, height: 360};
+
+
 const Home = (props) => {
     return (
 
@@ -8,18 +11,29 @@ const Home = (props) => {
 
         <body>
             <div>
-                    <div>
+                    <div className={'HomeWrapper'}>
                             <h1 style={{marginBottom: '4px', textAlign: 'center'}}>Home Header</h1>
                     </div>
 
 
-                    <div id="twitch-embed"></div>
-                            <script src="https://embed.twitch.tv/embed/v1.js"></script>
+                    <script type="text/javascript">
+
+                    </script>
+
                     <div>
 
+
+
                     </div>
-                        <h1 style={{marginBottom: '4px', textAlign: 'center'}}>What is Cysyphus?</h1>
-                        <p style={{marginBottom: '4px', textAlign: 'center'}}>Text for description here</p>
+
+
+
+                    <div className={'HomeWrapper'}>
+                            <h1 style={{marginBottom: '4px', textAlign: 'center'}}>What is Cysyphus?</h1>
+                            <p style={{marginBottom: '4px', textAlign: 'center'}}>Text for description here</p>
+                    </div>
+
+
 
                     <div className={'HomeWrapper'}>
                             <h1 style={{marginBottom: '4px', textAlign: 'center'}}>Who are we?</h1>
@@ -90,5 +104,7 @@ const Home = (props) => {
         </body>
     );
 }
+
+
 
 export default Home;
