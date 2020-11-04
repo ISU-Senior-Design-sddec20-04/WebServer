@@ -20,8 +20,78 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cafa6cc9-f57b-4965-a77d-36dd54b494f1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Wills Junk/Assets/Group Members/Aaron.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wills Junk/Assets/Group Members/Aaron2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wills Junk/Assets/Group Members/Daniel2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wills Junk/Assets/Group Members/Morgan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wills Junk/Assets/Group Members/Sam.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wills Junk/Assets/Group Members/Sean2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wills Junk/Assets/Group Members/Will.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wills Junk/Assets/Iowa State Images/Adding-Jack7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wills Junk/Assets/Iowa State Images/Cyclone_FullClr.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wills Junk/Assets/Iowa State Images/Iowa-State-Cyclones-Logo-history.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wills Junk/Assets/Iowa State Images/Iowa_State_Cyclones_logo.svg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wills Junk/Assets/Iowa State Images/head-isc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wills Junk/Assets/Table/2bP4pJr4wVimqCWjYimXJe2cnCgnAgDFY9U8Bu7irFF.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wills Junk/Assets/Table/54TLbcUcnRm4QHprpkvuQf3pERKU2FSZwxzwBNq64fpyi6UK4HsnfkXpB1ePexxZBu9reQHWeFjw5BNH3qJ6959u1T2B8wSMv82bfYhf7SQxZYvcV4ZvSp7s967z1Gq6KzobqLgHK.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wills Junk/Assets/Table/HNWT6CKZBghWrbSgyYK7BD5mKXZ3gVV6mzRXiiLXiiupSv9wFcXrGsy4iA6x4v7bzdmhUXfMV1ymLeZNMhxBcrEvab9wwW1mK3ruabbEHchPsmQ5diQ6JChtRXc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wills Junk/Programming Guides/Twitch API links.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/public/Assets/GroupMembers/Aaron.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/public/Assets/GroupMembers/Aaron2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/public/Assets/GroupMembers/Daniel.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/public/Assets/GroupMembers/Daniel2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/public/Assets/GroupMembers/Morgan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/public/Assets/GroupMembers/Sam.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/public/Assets/GroupMembers/Sean2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/public/Assets/GroupMembers/Will.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/public/Assets/IowaStateImages/Adding-Jack7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/public/Assets/IowaStateImages/Cyclone_FullClr.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/public/Assets/IowaStateImages/Iowa-State-Cyclones-Logo-history.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/public/Assets/IowaStateImages/Iowa_State_Cyclones_logo.svg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/public/Assets/IowaStateImages/head-isc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/public/Assets/Table/2bP4pJr4wVimqCWjYimXJe2cnCgnAgDFY9U8Bu7irFF.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/public/Assets/Table/54TLbcUcnRm4QHprpkvuQf3pERKU2FSZwxzwBNq64fpyi6UK4HsnfkXpB1ePexxZBu9reQHWeFjw5BNH3qJ6959u1T2B8wSMv82bfYhf7SQxZYvcV4ZvSp7s967z1Gq6KzobqLgHK.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/public/Assets/Table/HNWT6CKZBghWrbSgyYK7BD5mKXZ3gVV6mzRXiiLXiiupSv9wFcXrGsy4iA6x4v7bzdmhUXfMV1ymLeZNMhxBcrEvab9wwW1mK3ruabbEHchPsmQ5diQ6JChtRXc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/public/Sam.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/APIs/Repository.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/COLORS.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/datatypes/Track.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/datatypes/User.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/old-examples/ExampleApp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/Community.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/LogIn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/MyTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/SignUp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages_styling/Community.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages_styling/MyTable.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages_styling/home.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/CommunityTrackItem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/CommunityTracks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/CurrentlyPlaying.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/NavBar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/Queue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/QueueItem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/TableQueue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/TrackUpload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets_styling/CommunityTracks.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets_styling/CurrentlyPlaying.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets_styling/NavBar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets_styling/Queue.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets_styling/TrackUpload.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/pages/AddTrack.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/AddTrack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/pages/ChildProps.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/old-examples/ChildProps.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/pages/ElementExample.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/old-examples/ElementExample.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/pages/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/old-examples/Navigation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +109,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1jXDDseae3LBGt1JJ5u9SR33D7b" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">

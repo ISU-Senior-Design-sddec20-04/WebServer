@@ -1,0 +1,121 @@
+@import "../COLORS.css";
+
+
+.CommunityTracksContainer {
+}
+
+.CTSearchContainer {
+    border: 2px solid gray;
+    display: flex;
+    padding: 4px 4px 4px 4px;
+}
+
+.CTList{
+    border: 2px solid gray;
+    border-top: none;
+
+    height:500px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow:hidden;
+    overflow-y:scroll;
+}
+
+
+
+/*------------------------------------------------------------------------------*/
+                                    /* List Items */
+
+
+.CTSearch {
+    flex: 1;
+    font-size: 18px;
+}
+.CTSearchFav {
+    margin: 0 8px 0 8px;
+    padding: 2px 0px 2px 0px;
+    vertical-align: middle;
+    transform: scale(1.3);
+}
+.CTSearchSort {
+    width: 100px;
+    padding-left: 4px;
+    font-size: 18px;
+}
+
+
+/*------------------------------------------------------------------------------*/
+                                    /* List Items */
+
+
+.CTItem {
+    border: 2px solid lightgray;
+    display: flex;
+
+    padding: 10px 10px 10px 10px;
+    height: 150px;
+}
+
+.CTImage {
+    max-height: 100%;
+    max-width: 100%;
+
+    margin-right: 10px;
+}
+
+
+
+.CTInfo {
+    flex: 1;
+
+    font-size: 16px;
+    line-height: 16px;
+}
+
+
+
+.CTButtons{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    width: 100px;
+    margin-left: 10px;
+}
+.CTItemFavBtn {
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-top: auto;
+    margin-bottom: 0px;
+    transform: scale(1.2);
+
+}
+.CTItemQueueBtn {
+    border: 1px solid gray;
+    background: lightgray;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+
+    width: 100%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+.CTItemDownloadBtn {
+    border: 1px solid gray;
+    background: lightgray;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+
+    width: 100%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-top: 0px;
+    margin-bottom: auto;
+}

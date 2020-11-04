@@ -1,45 +1,41 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
-//Navbar can be given a different name because of default export
-import NaVbAr from './pages/Navigation';
-//Because home has a named export, we cant rename it
-import {home} from './pages/Home';
-import elementExample from './pages/ElementExample';
-import ChildProps from "./pages/ChildProps";
-import ImageUpload from "./pages/ImageUpload.component"
-import AddTrack from "./pages/AddTrack";
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {User} from "./datatypes/User";
+import NavBar from './widgets/NavBar';
+import Home from "./pages/Home";
+import MyTableFrame from "./pages/MyTable";
+import CommunityFrame from "./pages/Community";
 
 
-
-
-const props = ["Sample text from array", "AEIOU"]
+const user = new User(123, "Sample User");
 
 function App() {
         return (
             <BrowserRouter>
                 <div>
-                    <NaVbAr/>
+                    <NavBar/>
 
                     <Switch>
 
-                        <Route path="/" exact component={home}/>
-                        <Route path="/elementExample" component={elementExample}/>
-                        <Route path="/childProps" component={
-                            //I'm doing a nested declaration here, this isn't necessary, just shows you can
-                            () => { return (
-                                <ChildProps sampleText="Some sample text from properties" bg = 'gray' moreProps={props}>
-                                    <p>Here is a child passed through properties</p>
-                                </ChildProps>
-                            )}
-                        }/>
-                        <Route path ="/AddTrack" component={AddTrack} />
+
+                        <Route path="/" exact component={Home}/>
+                        <Route path="/community" exact component={packageCommunityParams}/>
+                        <Route path="/my-table" exact component={packageTableParams}/>
+                        <Route path="/log-in" exact component={Home}/>
 
                     </Switch>
 
                 </div>
             </BrowserRouter>
         );
+}
+
+
+function packageCommunityParams(){
+    return(<CommunityFrame user={user}/>)
+}
+function packageTableParams(){
+    return(<MyTableFrame user={user}/>)
 }
 
 export default App;

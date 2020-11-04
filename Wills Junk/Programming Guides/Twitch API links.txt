@@ -1,0 +1,5 @@
+Forum asking about getting a stream into a js website
+https://discuss.dev.twitch.tv/t/api-authentication-in-js/22723
+
+Twitch API
+https://dev.twitch.tv/docs/api
