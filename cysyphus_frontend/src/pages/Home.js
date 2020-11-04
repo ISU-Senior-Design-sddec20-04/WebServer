@@ -59,7 +59,7 @@ const Home = (props) => {
                     <div className={'HomeWrapper'}>
                             <h1 style={{marginBottom: '4px', textAlign: 'center'}}>Daniel Laracuenta</h1>
                             <div className={'HomeWrapper'}>
-                                <img src={process.env.PUBLIC_URL + '/Assets/GroupMembers/Daniel2.jpg'} alt={"Team Member"}
+                                <img src={process.env.PUBLIC_URL + '/Assets/GroupMembers/Daniel.jpg'} alt={"Team Member"}
                                      className={'HomeImage'}/>
                             </div>
                             <p style={{marginBottom: '4px', textAlign: 'center'}}>Text here</p>
@@ -69,7 +69,7 @@ const Home = (props) => {
                     <div className={'HomeWrapper'}>
                             <h1 style={{marginBottom: '4px', textAlign: 'center'}}>Aaron Lawrence</h1>
                             <div className={'HomeWrapper'}>
-                                <img src={process.env.PUBLIC_URL + '/Assets/GroupMembers/Aaron.jpg'} alt={"Team Member"}
+                                <img src={process.env.PUBLIC_URL + '/Assets/GroupMembers/AaronCropped.png'} alt={"Team Member"}
                                      className={'HomeImage'}/>
                             </div>
                             <p style={{marginBottom: '4px', textAlign: 'center'}}>Text here</p>
