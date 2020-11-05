@@ -20,14 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cafa6cc9-f57b-4965-a77d-36dd54b494f1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/Login.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/DnDImageUpload.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets_styling/Login.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cysyphus_frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/pages/Community.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/Community.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/pages/ImageUpload.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/ImageUpload.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/pages/LogIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/pages/LogIn.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/NavBar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
