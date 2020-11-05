@@ -1,5 +1,6 @@
 package com.sisyphusWeb.webService.service;
 
+import org.json.JSONObject;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -9,9 +10,10 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
-import com.sisyphusWeb.webService.model.table.Connect;
+import com.google.gson.Gson;
 import com.sisyphusWeb.webService.model.table.Pause;
 import com.sisyphusWeb.webService.model.table.Play;
+import com.sisyphusWeb.webService.model.table.Table;
 
 @Service
 public class TableService {
@@ -36,9 +38,10 @@ public class TableService {
 		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
 
 		restTemplate = new RestTemplate();
-		Play response = restTemplate.postForObject(httpURL, request, Play.class);
 		
-		return response;
+		Play play = new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONObject("resp").toString(), Play.class);
+		
+		return play;
 	}
 	
 	public Pause pause() {
@@ -54,12 +57,13 @@ public class TableService {
 		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
 
 		restTemplate = new RestTemplate();
-		Pause response = restTemplate.postForObject(httpURL, request, Pause.class);
 		
-		return response;
+		Pause pause = new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONObject("resp").toString(), Pause.class);
+
+		return pause;
 	}
 	
-	public Connect connect() {
+	public Table connect() {
 		String httpURL = baseURL + "/connect";
 		
 		HttpHeaders headers = new HttpHeaders();
@@ -72,8 +76,9 @@ public class TableService {
 		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
 
 		restTemplate = new RestTemplate();
-		Connect response = restTemplate.postForObject(httpURL, request, Connect.class);
 		
-		return response;
+		Table table = new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONArray("resp").getJSONObject(0).toString(), Table.class);
+		
+		return table;
 	}
 }

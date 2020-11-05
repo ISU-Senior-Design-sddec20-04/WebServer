@@ -57,6 +57,13 @@
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.jsonjsone -->
+		<dependency>
+    		<groupId>org.json</groupId>
+    		<artifactId>json</artifactId>
+   			<version>20200518</version>
+		</dependency>
 	</dependencies>
 
 	<build>

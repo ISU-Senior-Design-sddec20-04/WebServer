@@ -2,38 +2,36 @@ package com.sisyphusWeb.webService.model.table;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Pause {
 	@Id
-	private String err;
+	private String id;
 	
-	@OneToOne
-	private PauseResponse resp;
+	private String state;
 	
 	public Pause() {
 		
 	}
 	
-	public Pause(String err, PauseResponse resp) {
-		this.err = err;
-		this.resp = resp;
+	public Pause(String id, String state) {
+		this.id = id;
+		this.state = state;
 	}
 
-	public String getErr() {
-		return err;
+	public String getId() {
+		return id;
 	}
 
-	public void setErr(String err) {
-		this.err = err;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public PauseResponse getResp() {
-		return resp;
+	public String getState() {
+		return state;
 	}
 
-	public void setResp(PauseResponse resp) {
-		this.resp = resp;
+	public void setState(String state) {
+		this.state = state;
 	}
 }

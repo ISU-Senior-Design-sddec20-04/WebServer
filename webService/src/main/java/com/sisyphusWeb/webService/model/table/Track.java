@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Track implements ConnectResponse{
+public class Track {
 	@Id
 	private String id;
 	

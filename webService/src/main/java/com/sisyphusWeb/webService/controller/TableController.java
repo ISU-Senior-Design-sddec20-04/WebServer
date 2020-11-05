@@ -4,9 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sisyphusWeb.webService.model.table.Connect;
 import com.sisyphusWeb.webService.model.table.Pause;
 import com.sisyphusWeb.webService.model.table.Play;
+import com.sisyphusWeb.webService.model.table.Table;
+import com.sisyphusWeb.webService.model.table.Track;
 import com.sisyphusWeb.webService.service.TableService;
 
 @RestController
@@ -25,7 +26,12 @@ public class TableController {
 	 }
 	 
 	 @GetMapping("/connect")
-	 public Connect connectTable() {
+	 public Table connectTable() {
 		 return tableService.connect();
+	 }
+	 
+	 @GetMapping("/active") 
+	 public Track getActiveTrack() {
+		 return tableService.connect().getActive_track();
 	 }
 }
