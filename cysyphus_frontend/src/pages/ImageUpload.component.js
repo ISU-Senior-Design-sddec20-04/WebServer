@@ -4,7 +4,7 @@ import ImageUploader from 'react-images-upload';
 
 
 
-    class ImageUploadComponent extends React.Component {
+  export  class  ImageUploadComponent extends React.Component {
 
         constructor(props) {
             super(props);
