@@ -1,7 +1,6 @@
 import React from 'react';
 import '../pages_styling/home.css'
 
-var option = {channel: "USERNAME", width: 640, height: 360};
 
 
 const Home = (props) => {
@@ -16,9 +15,10 @@ const Home = (props) => {
                     </div>
 
 
-                    <script type="text/javascript">
 
-                    </script>
+
+
+
 
                     <div>
 
