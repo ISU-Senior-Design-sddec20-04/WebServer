@@ -17,22 +17,26 @@ export class CurrentlyPlaying extends React.Component {
             preview: Repository.getTrackPreview(0),
             progress: Repository.getCurrentTrackProgress(this.user.id),
 
-            playing: Repository.isTrackPlaying(this.user.id),
-            looping: Repository.isTrackLooping(this.user.id),
-            eraseBefore: Repository.isTrackEraseBefore(this.user.id),
+            playing: Repository.isCurrentTrackPlaying(this.user.id),
+            looping: Repository.isCurrentTrackLooping(this.user.id),
+            eraseBefore: Repository.isCurrentTrackEraseBefore(this.user.id),
         }
+
+        this.togglePlaying = this.togglePlaying.bind(this)
+        this.handleSkip = this.handleSkip.bind(this)
+        this.handleClickLoop = this.handleClickLoop.bind(this)
     }
 
-    togglePlaying = () => {
-        this.setState({playing: !this.state.playing});
+    togglePlaying(){
+        const playing = this.state.playing;
+        this.setState({playing: !playing});
+        Repository.setCurrentTrackPlaying(this.user.id, !playing);
     };
+    handleSkip(){
 
-    toggleLooping = () => {
+    }
+    handleClickLoop(){
         this.setState({looping: !this.state.looping});
-    };
-
-    toggleEraseBefore = () => {
-        this.setState({eraseBefore: !this.state.eraseBefore});
     };
 
 
@@ -45,7 +49,7 @@ export class CurrentlyPlaying extends React.Component {
                 <div className={'CurrentlyPlayingContainer'}>
                     <div className={'InfoContainer'}>
                         <span className={'InfoText'}>
-                            <p>{this.state.track.title}</p>
+                            <p>{this.state.track.name}</p>
                             <p>By {this.state.track.author}</p>
                         </span>
 
@@ -63,9 +67,13 @@ export class CurrentlyPlaying extends React.Component {
 
 
                 <div className={'CurrentlyPlayingOptionsContainer'}>
-                    <PausePlayButton playing={this.state.playing}/>
-                    <span className={'OptionsButton'}> <SkipNext /> <p>Skip</p> </span>
-                    <span className={'LoopButton'}> <Loop/> </span>
+                    <PausePlayButton playing={this.state.playing} togglePlaying={this.togglePlaying}/>
+                    <button className={'SkipButton'} onClick={this.handleSkip}>
+                        <SkipNext/> <p>Skip</p>
+                    </button>
+                    <button className={'LoopButton'} onClick={this.handleClickLoop}>
+                        <Loop/>
+                    </button>
                 </div>
             </div>
         )
@@ -74,7 +82,6 @@ export class CurrentlyPlaying extends React.Component {
 
 function PausePlayButton(props){
     if(props.playing)
-        return <span className={'OptionsButton'}> <Pause/> <p>Pause</p> </span>
-    return <span className={'OptionsButton'}> <PlayArrow/> <p>Play</p> </span>
-    //return <span><FontAwesomeIcon icon={faPlay} /> Play </span>
+        return <button className={'PausePlayButton'} onClick={props.togglePlaying}><Pause/> <p>Pause</p></button>
+    return <button className={'PausePlayButton'} onClick={props.togglePlaying}><PlayArrow/> <p>Play</p></button>
 }

@@ -77,16 +77,37 @@
 /*------------------------------------------------------------------------------*/
                                     /* Track Options */
 
-.OptionsButton, .LoopButton {
+.OptionsButton, .TrackOptions, .LoopButton {
+}
+.CPButtonWrapper, .PausePlayButton, .SkipButton, .LoopButton {
+    border: none;
     display: flex;
     align-items: center;
 
-    padding: 0px 4px 0px 0px;
-    height: 30px;
-    width: min-content;
-
     cursor: pointer;
 }
+
+.PausePlayButton {
+    margin: 0px 8px 0px 8px;
+    width: 70px;
+    transform: scale(1.1);
+}
+.SkipButton {
+    padding-right: 12px;
+    transform: scale(1.1);
+}
+
+
+.TrackOptions {
+    margin: auto 4px 0px 4px;
+    padding: 0px 4px 0px 2px;
+
+    height: 30px;
+    width: 80px;
+
+    transform: scale(1.1);
+}
+
 
 .LoopButton {
     margin-left: auto;

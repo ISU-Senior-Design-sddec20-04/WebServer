@@ -3,6 +3,7 @@ import '../pages_styling/Community.css'
 
 import {CommunityTracks} from "../widgets/CommunityTracks";
 import {TrackUpload} from "../widgets/TrackUpload";
+import {ImageUploadComponent} from "../pages/ImageUpload.component"
 
 
 const CommunityFrame = (props) => {
@@ -17,7 +18,7 @@ const CommunityFrame = (props) => {
             <div className={'UploadNewWrapper'}>
                 <h2 style={{marginBottom: '4px', textAlign: 'center'}}>Upload New Track</h2>
                 <div className={'UploadNewButtonWrapper'}>
-                    <TrackUpload/>
+                    <ImageUploadComponent/>
                 </div>
             </div>
         </div>

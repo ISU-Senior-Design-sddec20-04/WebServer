@@ -20,13 +20,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cafa6cc9-f57b-4965-a77d-36dd54b494f1" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/Login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/DnDImageUpload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets_styling/Login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/pages/Community.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/Community.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/pages/ImageUpload.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/ImageUpload.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/pages/LogIn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/NavBar.js" afterDir="false" />
+>>>>>>> MorganFrontEnd
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -36,12 +51,27 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1jlSEtWNsoOllFX0QWRUlQfhPzX" />
+=======
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1jXDDseae3LBGt1JJ5u9SR33D7b" />
+>>>>>>> MorganFrontEnd
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+<<<<<<< HEAD
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -52,10 +82,26 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
+=======
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+>>>>>>> MorganFrontEnd
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+<<<<<<< HEAD
+=======
+    <property name="nodejs_package_manager_path" value="npm" />
+>>>>>>> MorganFrontEnd
   </component>
   <component name="RunManager">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
@@ -74,11 +120,22 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="cafa6cc9-f57b-4965-a77d-36dd54b494f1" name="Default Changelist" comment="" />
+<<<<<<< HEAD
       <created>1604377138880</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604377138880</updated>
       <workItem from="1604377161093" duration="2420000" />
+=======
+      <created>1603941426359</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603941426359</updated>
+      <workItem from="1603941433718" duration="10430000" />
+      <workItem from="1604175649091" duration="8181000" />
+      <workItem from="1604288468287" duration="556000" />
+      <workItem from="1604289265068" duration="6474000" />
+>>>>>>> MorganFrontEnd
     </task>
     <servers />
   </component>
@@ -97,6 +154,7 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="WindowStateProjectService">
     <state x="740" y="295" key="FileChooserDialogImpl" timestamp="1604377365756">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -106,5 +164,31 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="398" key="SwitcherDM/1920.-179.1920.1080/0.0.1920.1080/-1440.12.1440.900@0.0.1920.1080" timestamp="1604377339610" />
+=======
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="638" y="342" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603942993394">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="638" y="342" key="#com.intellij.fileTypes.FileTypeChooser/1920.-179.1920.1080/0.0.1920.1080/-1440.12.1440.900@0.0.1920.1080" timestamp="1603942993394" />
+    <state width="1877" height="295" key="GridCell.Tab.0.bottom" timestamp="1604018356256">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="295" key="GridCell.Tab.0.bottom/1920.-179.1920.1080/0.0.1920.1080/-1440.12.1440.900@0.0.1920.1080" timestamp="1604018356256" />
+    <state width="1877" height="295" key="GridCell.Tab.0.center" timestamp="1604018356256">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="295" key="GridCell.Tab.0.center/1920.-179.1920.1080/0.0.1920.1080/-1440.12.1440.900@0.0.1920.1080" timestamp="1604018356256" />
+    <state width="1877" height="295" key="GridCell.Tab.0.left" timestamp="1604018356256">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="295" key="GridCell.Tab.0.left/1920.-179.1920.1080/0.0.1920.1080/-1440.12.1440.900@0.0.1920.1080" timestamp="1604018356256" />
+    <state width="1877" height="295" key="GridCell.Tab.0.right" timestamp="1604018356256">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="295" key="GridCell.Tab.0.right/1920.-179.1920.1080/0.0.1920.1080/-1440.12.1440.900@0.0.1920.1080" timestamp="1604018356256" />
+>>>>>>> MorganFrontEnd
   </component>
 </project>

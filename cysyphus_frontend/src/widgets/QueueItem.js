@@ -12,7 +12,7 @@ export class QueueItem extends React.Component {
     render() {
         return(
             <li>
-                <span>{this.track.title}</span>
+                <span>{this.track.name}</span>
                 <DragHandle className={'QueueItemDragHandle'}/>
                 <Icon path={mdiEraser} title="Erase Before Playing" size={1} className={'QueueItemButton'}/>
                 <Delete className={'QueueItemButton'}/>
