@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sisyphusWeb.webService.model.Greeting;
 
+//Example Rest Controller Model
 @RestController
 public class GreetingController {
 	private static final String template = "Hello, %s!";

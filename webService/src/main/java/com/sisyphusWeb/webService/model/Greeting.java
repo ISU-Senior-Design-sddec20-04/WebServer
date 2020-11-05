@@ -1,5 +1,6 @@
 package com.sisyphusWeb.webService.model;
 
+//Example POJO Model
 public class Greeting {
 	private final long id;
 	private final String content;

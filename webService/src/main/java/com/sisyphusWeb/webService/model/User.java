@@ -1,5 +1,7 @@
 package com.sisyphusWeb.webService.model;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +13,20 @@ public class User {
 	private Integer Id;
 	
 	private String name;
+	
+	private ArrayList<String> favoriteTracks;
+	
+	private ArrayList<String> uploadedTracks;
+	
+	public User() {
+		
+	}
+	
+	public User(String name, ArrayList<String> favoriteTracks, ArrayList<String> uploadedTracks) {
+		this.name = name;
+		this.favoriteTracks = favoriteTracks;
+		this.uploadedTracks = uploadedTracks;
+	}
 
 	public Integer getId() {
 		return Id;
@@ -27,6 +43,20 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
+
+	public ArrayList<String> getFavoriteTracks() {
+		return favoriteTracks;
+	}
+
+	public void setFavoriteTracks(ArrayList<String> favoriteTracks) {
+		this.favoriteTracks = favoriteTracks;
+	}
+
+	public ArrayList<String> getUploadedTracks() {
+		return uploadedTracks;
+	}
+
+	public void setUploadedTracks(ArrayList<String> uploadedTracks) {
+		this.uploadedTracks = uploadedTracks;
+	}
 }
