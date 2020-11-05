@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {User} from "./datatypes/User";
 import NavBar from './widgets/NavBar';
 import Home from "./pages/Home";
+import settings from "./pages/Settings";
 import MyTableFrame from "./pages/MyTable";
 import CommunityFrame from "./pages/Community";
 import Login from "./pages/Login"
@@ -23,6 +24,7 @@ function App() {
                         <Route path="/community" exact component={packageCommunityParams}/>
                         <Route path="/my-table" exact component={packageTableParams}/>
                         <Route path="/login" exact component={Login}/>
+                        <Route path="/settings" exact component={settings}/>
 
                     </Switch>
 
