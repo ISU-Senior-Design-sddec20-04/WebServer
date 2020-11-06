@@ -18,7 +18,9 @@ const Settings = (props) => {
     }
 
     return (
+
         <div className="Login">
+            <h1 style={{marginBottom: '4px', textAlign: 'center'}}>Change Password</h1>
             <form onSubmit={handleSubmit}>
                 <FormGroup controlId="email" bsSize="large">
                     <FormLabel>Email</FormLabel>
