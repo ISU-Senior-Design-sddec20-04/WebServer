@@ -32,8 +32,6 @@ public class FileStorageService {
     private final Path converterLocation;
     
     private final Path previewStorageLocation;
-    
-    private final Path thetaStorateLocation;
 
     @Autowired
     public FileStorageService(FileStorageProperties fileStorageProperties) {
@@ -44,9 +42,6 @@ public class FileStorageService {
                 .toAbsolutePath().normalize();
         
         this.previewStorageLocation = Paths.get(fileStorageProperties.getStorageDir() + "previews/")
-                .toAbsolutePath().normalize();
-        
-        this.thetaStorateLocation = Paths.get(fileStorageProperties.getStorageDir() + "thetas/")
                 .toAbsolutePath().normalize();
         
         try {
@@ -85,6 +80,7 @@ public class FileStorageService {
             Path targetLocation = this.imageStorageLocation.resolve(fileName);
             Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
             imageRepository.save(new Image(fileName, targetLocation.toString()));
+            
             return fileName;
         } catch (IOException ex) {
             throw new FileStorageException("Could not store file " + fileName + ". Please try again!", ex);
@@ -129,34 +125,68 @@ public class FileStorageService {
 		return deleted;
     }
     
-    public void convertToTrack(String fullFileName) throws IOException, InterruptedException {
+    public List<String> convertToTrack(String fullFileName) {
     	
     	String imageLocation = imageRepository.findByfileName(fullFileName).getLocation();
+    	List<String> directories = new ArrayList<String>();
     	String converterDirectory = converterLocation.toString();
     	String command;
     	String[] commandToExecute;
     	String name = fullFileName.split("\\.")[0];
+    	String previewName = name + ".png";
+    	
     	
     	//windows commands
     	command = "copy " + imageLocation + " " + converterDirectory;
     	commandToExecute = new String[] {"cmd.exe", "/c", command};
-    	Runtime.getRuntime().exec(commandToExecute);
+    	try {
+			Runtime.getRuntime().exec(commandToExecute);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	
     	command = "cd " + converterDirectory + " & py ImageToTrack.py " + fullFileName;
     	commandToExecute = new String[] {"cmd.exe", "/c", command};
-    	Runtime.getRuntime().exec(commandToExecute);
+    	try {
+			Runtime.getRuntime().exec(commandToExecute);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	
-    	Thread.sleep(5000);
+    	try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	
     	convertPointsToThr(converterDirectory, name);
-//    	
-//    	command = "rename " + converterDirectory + "\\" + "result.png " + previewName;
-//    	commandToExecute = new String[] {"cmd.exe", "/c", command};
-//    	Runtime.getRuntime().exec(commandToExecute);
-//    	
-//    	command = "move " + converterDirectory + "\\" + previewName + " " + previewStorageLocation.toString();
-//    	commandToExecute = new String[] {"cmd.exe", "/c", command};
-//    	Runtime.getRuntime().exec(commandToExecute);
+    	
+    	command = "rename " + converterDirectory + "\\" + "result.png " + previewName;
+    	commandToExecute = new String[] {"cmd.exe", "/c", command};
+    	try {
+			Runtime.getRuntime().exec(commandToExecute);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	command = "move " + converterDirectory + "\\" + previewName + " " + previewStorageLocation.toString();
+    	commandToExecute = new String[] {"cmd.exe", "/c", command};
+    	try {
+			Runtime.getRuntime().exec(commandToExecute);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	directories.add(converterDirectory);
+    	directories.add(previewStorageLocation.toString() + "/previewName");
+    	directories.add(converterDirectory + "\\Output_Track.thr");
+    	
+    	return null;
     }
     
     public void convertPointsToThr(String directory, String fileName) {

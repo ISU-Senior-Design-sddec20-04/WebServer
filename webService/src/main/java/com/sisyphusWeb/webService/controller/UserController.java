@@ -15,7 +15,6 @@ import com.sisyphusWeb.webService.repository.UserRepository;
 import com.sisyphusWeb.webService.service.UserService;
 
 @RestController
-@RequestMapping(path="/user")
 public class UserController {
 	@Autowired
 	private UserRepository userRepository;
@@ -23,7 +22,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@PostMapping(path="/add")
+	@PostMapping(path="/addUser")
 	public String addNewUser(@RequestBody User user) {
 		if(userService.exists(user.getName())) {
 			return "Username: " + user.getName() + " is taken. Please choose a different one";
@@ -33,25 +32,25 @@ public class UserController {
 		}
 	}
 	
-	@GetMapping(path="/all")
+	@GetMapping(path="/getAllUsers")
 	public Iterable<User> getAllUsers() {
 		return userRepository.findAll();
 	}
 	
-	@GetMapping(path="/{name}")
-	public User getUser(@PathVariable String name) {
+	@GetMapping(path="/getUser")
+	public User getUser(@RequestParam String name) {
 		return userService.returnUser(name);
 	}
 	
-	@PutMapping(path="/{name}/updatePassword")
-	public String updateUserPassword(@PathVariable String name, @RequestParam String password) {
+	@PutMapping(path="/updateUserPassword")
+	public String updateUserPassword(@RequestParam String name, @RequestParam String password) {
 		userService.updatePassword(name, password);
-		return "Updated";
+		return "Passowrd updated";
 	}
 	
-	@PutMapping(path="/{name}/updateName")
-	public String updateUserName(@PathVariable String name, @RequestParam String newName) {
+	@PutMapping(path="/updateUsername")
+	public String updateUserName(@RequestParam String name, @RequestParam String newName) {
 		userService.updateUsername(name, newName);
-		return "Updated";
+		return "User: " + name + " updated to " + newName;
 	}
 }
