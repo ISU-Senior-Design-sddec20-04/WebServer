@@ -1,11 +1,6 @@
 package com.sisyphusWeb.webService.model.table;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 public class Pause {
-	@Id
 	private String id;
 	
 	private String state;

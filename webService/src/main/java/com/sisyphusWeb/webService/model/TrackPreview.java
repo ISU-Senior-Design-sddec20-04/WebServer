@@ -1,11 +1,8 @@
 package com.sisyphusWeb.webService.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
+//@Entity
 public class TrackPreview {
-	@Id
+//	@Id
 	String id;
 	
 	String preview;

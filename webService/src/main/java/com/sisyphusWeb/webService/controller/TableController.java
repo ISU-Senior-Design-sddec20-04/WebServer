@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sisyphusWeb.webService.model.table.Pause;
 import com.sisyphusWeb.webService.model.table.Play;
 import com.sisyphusWeb.webService.model.table.Table;
+import com.sisyphusWeb.webService.model.table.Time;
 import com.sisyphusWeb.webService.model.table.Track;
 import com.sisyphusWeb.webService.service.TableService;
 
@@ -27,11 +28,22 @@ public class TableController {
 	 
 	 @GetMapping("/connect")
 	 public Table connectTable() {
-		 return tableService.connect();
+		 return tableService.getInfo();
 	 }
 	 
 	 @GetMapping("/active") 
 	 public Track getActiveTrack() {
-		 return tableService.connect().getActive_track();
+		 return tableService.getActiveTrack();
+	 }
+	 
+	 @GetMapping("/updateDB")
+	 public String updateDatabase() {
+		 tableService.initTrackDB();
+		 return "Done";
+	 }
+	 
+	 @GetMapping("/getTime")
+	 public Time getTime() {
+		 return tableService.getTrackTime();
 	 }
 }

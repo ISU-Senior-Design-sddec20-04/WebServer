@@ -1,13 +1,9 @@
 package com.sisyphusWeb.webService.model.table;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-@Entity
 public class Play {
 
-	@Id
 	private String id;
 	
 	private boolean is_waiting_between_tracks;

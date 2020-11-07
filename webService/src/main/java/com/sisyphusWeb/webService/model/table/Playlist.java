@@ -2,14 +2,9 @@ package com.sisyphusWeb.webService.model.table;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
-@Entity
 public class Playlist {
 
-	@Id
 	private String id;
 	
 	private String type;
@@ -24,7 +19,6 @@ public class Playlist {
 	
 	private String active_track_id;
 	
-	@OneToOne
 	private List<Track> tracks;
 	
 	private int[] sorted_tracks;

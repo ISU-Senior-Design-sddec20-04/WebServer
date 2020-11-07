@@ -14,6 +14,8 @@ public class User {
 	
 	private String name;
 	
+	private String password;
+	
 	private ArrayList<String> favoriteTracks;
 	
 	private ArrayList<String> uploadedTracks;
@@ -22,8 +24,9 @@ public class User {
 		
 	}
 	
-	public User(String name, ArrayList<String> favoriteTracks, ArrayList<String> uploadedTracks) {
+	public User(String name, String password, ArrayList<String> favoriteTracks, ArrayList<String> uploadedTracks) {
 		this.name = name;
+		this.password = password;
 		this.favoriteTracks = favoriteTracks;
 		this.uploadedTracks = uploadedTracks;
 	}
@@ -34,6 +37,14 @@ public class User {
 
 	public void setId(Integer id) {
 		Id = id;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getName() {

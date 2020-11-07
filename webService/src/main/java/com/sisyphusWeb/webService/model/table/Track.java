@@ -1,5 +1,7 @@
 package com.sisyphusWeb.webService.model.table;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -7,6 +9,8 @@ import javax.persistence.Id;
 public class Track {
 	@Id
 	private String id;
+	
+	private String type;
 	
 	private int vel;
 	
@@ -27,14 +31,22 @@ public class Track {
 	private boolean reversed;
 	
 	private boolean reversible;
+	
+	private String created_by_name;
+	
+	private String preview_location;
+	
+//	@OneToMany
+	private ArrayList<Coordinate> coordinates;
 
 	public Track() {
 		
 	}
 	
-	public Track(String id, int vel, float accel, int thvmax, int firstR, int lastR, String name, int _index, int start,
-			boolean reversed, boolean reversible) {
+	public Track(String id, String type, int vel, float accel, int thvmax, int firstR, int lastR, String name, int _index, int start,
+			boolean reversed, boolean reversible, String created_by_name, String preview_location, ArrayList<Coordinate> coordinates) {
 		this.id = id;
+		this.type = type;
 		this.vel = vel;
 		this.accel = accel;
 		this.thvmax = thvmax;
@@ -45,6 +57,9 @@ public class Track {
 		this.start = start;
 		this.reversed = reversed;
 		this.reversible = reversible;
+		this.created_by_name = created_by_name;
+		this.preview_location = preview_location;
+		this.coordinates = coordinates;
 	}
 	
 	public String getId() {
@@ -55,6 +70,14 @@ public class Track {
 		this.id = id;
 	}
 	
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	public int getVel() {
 		return vel;
 	}
@@ -132,5 +155,29 @@ public class Track {
 	
 	public void setReversible(boolean reversible) {
 		this.reversible = reversible;
+	}
+
+	public String getCreated_by_name() {
+		return created_by_name;
+	}
+
+	public void setCreated_by_name(String created_by_name) {
+		this.created_by_name = created_by_name;
+	}
+
+	public String getPreview_location() {
+		return preview_location;
+	}
+
+	public void setPreview_location(String preview_location) {
+		this.preview_location = preview_location;
+	}
+
+	public ArrayList<Coordinate> getCoordinates() {
+		return coordinates;
+	}
+
+	public void setCoordinates(ArrayList<Coordinate> coordinates) {
+		this.coordinates = coordinates;
 	}
 }

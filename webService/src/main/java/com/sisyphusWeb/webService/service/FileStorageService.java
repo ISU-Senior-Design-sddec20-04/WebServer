@@ -1,18 +1,6 @@
 package com.sisyphusWeb.webService.service;
 
 
-import com.sisyphusWeb.webService.exception.FileStorageException;
-import com.sisyphusWeb.webService.exception.MyFileNotFoundException;
-import com.sisyphusWeb.webService.model.Image;
-import com.sisyphusWeb.webService.property.FileStorageProperties;
-import com.sisyphusWeb.webService.repository.ImageRepository;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
-import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
-import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
@@ -22,18 +10,47 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.sisyphusWeb.webService.exception.FileStorageException;
+import com.sisyphusWeb.webService.exception.MyFileNotFoundException;
+import com.sisyphusWeb.webService.model.Image;
+import com.sisyphusWeb.webService.property.FileStorageProperties;
+import com.sisyphusWeb.webService.repository.ImageRepository;
+import com.sisyphusWeb.webService.repository.TrackRepository;
+
 @Service
 public class FileStorageService {
 
-    private final Path fileStorageLocation;
+    private final Path imageStorageLocation;
+    
+    private final Path converterLocation;
+    
+    private final Path previewStorageLocation;
+    
+    private final Path thetaStorateLocation;
 
     @Autowired
     public FileStorageService(FileStorageProperties fileStorageProperties) {
-        this.fileStorageLocation = Paths.get(fileStorageProperties.getUploadDir())
+        this.imageStorageLocation = Paths.get(fileStorageProperties.getStorageDir() + "images/")
                 .toAbsolutePath().normalize();
-
+        
+        this.converterLocation = Paths.get("E:\\Documents\\GitHub\\ImageToTrack")
+                .toAbsolutePath().normalize();
+        
+        this.previewStorageLocation = Paths.get(fileStorageProperties.getStorageDir() + "previews/")
+                .toAbsolutePath().normalize();
+        
+        this.thetaStorateLocation = Paths.get(fileStorageProperties.getStorageDir() + "thetas/")
+                .toAbsolutePath().normalize();
+        
         try {
-            Files.createDirectories(this.fileStorageLocation);
+            Files.createDirectories(this.imageStorageLocation);
         } catch (Exception ex) {
             throw new FileStorageException("Could not create the directory where the uploaded files will be stored.", ex);
         }
@@ -41,6 +58,9 @@ public class FileStorageService {
     
     @Autowired
     ImageRepository imageRepository;
+    
+    @Autowired
+    TrackRepository trackRepo;
 
     public List<String> getAllFiles() {
     	List<Image> images = imageRepository.findAll();
@@ -62,7 +82,7 @@ public class FileStorageService {
             }
 
             // Copy file to the target location (Replacing existing file with the same name)
-            Path targetLocation = this.fileStorageLocation.resolve(fileName);
+            Path targetLocation = this.imageStorageLocation.resolve(fileName);
             Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
             imageRepository.save(new Image(fileName, targetLocation.toString()));
             return fileName;
@@ -100,13 +120,53 @@ public class FileStorageService {
     	Boolean deleted = false;
     	Image image = imageRepository.findByfileName(fileName);
     	try	{
-    		Path filePath = this.fileStorageLocation.resolve(fileName).normalize();
+    		Path filePath = this.imageStorageLocation.resolve(fileName).normalize();
     		deleted = Files.deleteIfExists(filePath);
     		imageRepository.delete(image);
     	} catch (IOException ex) {
     		ex.printStackTrace();
     	}
 		return deleted;
+    }
+    
+    public void convertToTrack(String fullFileName) throws IOException, InterruptedException {
     	
+    	String imageLocation = imageRepository.findByfileName(fullFileName).getLocation();
+    	String converterDirectory = converterLocation.toString();
+    	String command;
+    	String[] commandToExecute;
+    	String name = fullFileName.split("\\.")[0];
+    	
+    	//windows commands
+    	command = "copy " + imageLocation + " " + converterDirectory;
+    	commandToExecute = new String[] {"cmd.exe", "/c", command};
+    	Runtime.getRuntime().exec(commandToExecute);
+    	
+    	command = "cd " + converterDirectory + " & py ImageToTrack.py " + fullFileName;
+    	commandToExecute = new String[] {"cmd.exe", "/c", command};
+    	Runtime.getRuntime().exec(commandToExecute);
+    	
+    	Thread.sleep(5000);
+    	
+    	convertPointsToThr(converterDirectory, name);
+//    	
+//    	command = "rename " + converterDirectory + "\\" + "result.png " + previewName;
+//    	commandToExecute = new String[] {"cmd.exe", "/c", command};
+//    	Runtime.getRuntime().exec(commandToExecute);
+//    	
+//    	command = "move " + converterDirectory + "\\" + previewName + " " + previewStorageLocation.toString();
+//    	commandToExecute = new String[] {"cmd.exe", "/c", command};
+//    	Runtime.getRuntime().exec(commandToExecute);
+    }
+    
+    public void convertPointsToThr(String directory, String fileName) {
+    	String command = "cd " + directory + " & py Calculate.py " + fileName + ".txt";
+    	String[] commandToExecute = new String[] {"cmd.exe", "/c", command};
+    	try {
+			Runtime.getRuntime().exec(commandToExecute);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 }
