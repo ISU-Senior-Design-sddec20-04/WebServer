@@ -15,18 +15,17 @@ const Home: React.FC = (props) => {
                             <h1 style={{marginBottom: '4px', textAlign: 'center'}}>Home Header</h1>
                     </div>
 
-                    <div className={'HomeWrapper'}>
+
+                    <div className={'twitchWrapper'}>
                             <iframe
-                                src="https://player.twitch.tv/?<tsm_zexrow>&parent=localhost:80"
-                                height="100%"
-                                width="100%"
+                                src="https://player.twitch.tv/?channel=cysyphustable&parent=localhost"
                                 frameborder="0"
+                                allowfullscreen="true"
                                 scrolling="no"
-                                allowfullscreen="true">
+                                height="540"
+                                width="960">
                             </iframe>
                     </div>
-
-
 
 
                     <div>
@@ -52,7 +51,7 @@ const Home: React.FC = (props) => {
                     <div className={'HomeWrapper'}>
                             <h1 style={{marginBottom: '4px', textAlign: 'center'}}>Samuel Christianson</h1>
                             <div className={'HomeWrapper'}>
-                                <img src={process.env.PUBLIC_URL + '/Assets/GroupMembers/Sam.jpg'} alt={"Team Member"}
+                                <img src={process.env.PUBLIC_URL + '/Assets/GroupMembers/Sam2.jpg'} alt={"Team Member"}
                                      className={'HomeImage'}/>
                             </div>
                             <p style={{marginBottom: '4px', textAlign: 'center'}}>Text here</p>
@@ -105,6 +104,11 @@ const Home: React.FC = (props) => {
                                 <img src={process.env.PUBLIC_URL + '/Assets/GroupMembers/Will.jpg'} alt={"Team Member"}
                                      className={'HomeImage'}/>
                             </div>
+                            <p style={{marginBottom: '4px', textAlign: 'center'}}>Text here</p>
+                    </div>
+
+                    <div className={'HomeWrapper'}>
+                            <h1 style={{marginBottom: '4px', textAlign: 'center'}}>Current Events</h1>
                             <p style={{marginBottom: '4px', textAlign: 'center'}}>Text here</p>
                     </div>
 
