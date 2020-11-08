@@ -1,9 +1,10 @@
 import React from 'react';
+
+
 import '../pages_styling/home.css'
 
 
-
-const Home = (props) => {
+const Home: React.FC = (props) => {
     return (
 
 
@@ -14,8 +15,16 @@ const Home = (props) => {
                             <h1 style={{marginBottom: '4px', textAlign: 'center'}}>Home Header</h1>
                     </div>
 
-
-
+                    <div className={'HomeWrapper'}>
+                            <iframe
+                                src="https://player.twitch.tv/?<tsm_zexrow>&parent=localhost:80"
+                                height="100%"
+                                width="100%"
+                                frameborder="0"
+                                scrolling="no"
+                                allowfullscreen="true">
+                            </iframe>
+                    </div>
 
 
 
