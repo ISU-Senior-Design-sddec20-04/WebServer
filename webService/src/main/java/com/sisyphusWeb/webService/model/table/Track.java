@@ -1,7 +1,5 @@
 package com.sisyphusWeb.webService.model.table;
 
-import java.util.ArrayList;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -35,18 +33,13 @@ public class Track {
 	private String created_by_name;
 	
 	private String preview_location;
-	
-	private ArrayList<Coordinate> coordinates;
-	
-	private String coordinateString;
 
 	public Track() {
 		
 	}
 	
 	public Track(String id, String type, int vel, float accel, int thvmax, int firstR, int lastR, String name, int _index, int start,
-			boolean reversed, boolean reversible, String created_by_name, String preview_location, ArrayList<Coordinate> coordinates, 
-			String coordinateString) {
+			boolean reversed, boolean reversible, String created_by_name, String preview_location) {
 		this.id = id;
 		this.type = type;
 		this.vel = vel;
@@ -61,8 +54,6 @@ public class Track {
 		this.reversible = reversible;
 		this.created_by_name = created_by_name;
 		this.preview_location = preview_location;
-		this.coordinates = coordinates;
-		this.coordinateString = coordinateString;
 	}
 	
 	public String getId() {
@@ -174,21 +165,5 @@ public class Track {
 
 	public void setPreview_location(String preview_location) {
 		this.preview_location = preview_location;
-	}
-
-	public ArrayList<Coordinate> getCoordinates() {
-		return coordinates;
-	}
-
-	public void setCoordinates(ArrayList<Coordinate> coordinates) {
-		this.coordinates = coordinates;
-	}
-
-	public String getCoordinateString() {
-		return coordinateString;
-	}
-
-	public void setCoordinateString(String coordinateString) {
-		this.coordinateString = coordinateString;
 	}
 }

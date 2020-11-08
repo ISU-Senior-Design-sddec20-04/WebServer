@@ -1,6 +1,9 @@
 package com.sisyphusWeb.webService.model.table;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.OneToMany;
 
 
 public class Playlist {
@@ -19,7 +22,8 @@ public class Playlist {
 	
 	private String active_track_id;
 	
-	private List<Track> tracks;
+	@OneToMany
+	private ArrayList<Track> tracks;
 	
 	private int[] sorted_tracks;
 	
@@ -34,7 +38,7 @@ public class Playlist {
 	}
 
 	public Playlist(String id, String type, String name, boolean is_loop, boolean is_shuffle, int active_track_index,
-			String active_track_id, List<Track> tracks, int[] sorted_tracks, int[] next_tracks, String description,
+			String active_track_id, ArrayList<Track> tracks, int[] sorted_tracks, int[] next_tracks, String description,
 			String created_by_name) {
 		this.id = id;
 		this.type = type;
@@ -110,7 +114,7 @@ public class Playlist {
 		return tracks;
 	}
 
-	public void setTracks(List<Track> tracks) {
+	public void setTracks(ArrayList<Track> tracks) {
 		this.tracks = tracks;
 	}
 

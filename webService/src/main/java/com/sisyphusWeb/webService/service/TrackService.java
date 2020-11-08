@@ -20,44 +20,37 @@ public class TrackService {
 	@Autowired
 	private TrackRepository trackRepo;
 	
+	@Autowired
+	private TableService tableService;
+	
+	//directory at 1st index will be the preview Directory, directory at second will be the directory for Thr files
 	public void addTrack(List<String> directories, String fullFileName, String username) {
-		
-//		String converterLocation = directories.get(0);
-		String previewDirectory = directories.get(1);
-		String thetaRhoDirectory = directories.get(2);
 		
 		Track track = new Track();
 		
-		String id = UUID.randomUUID().toString();
-		track.setId(id);
+		String uuid = UUID.randomUUID().toString();
 		
-		String type = "track";
-		track.setType(type);
+		ArrayList<Coordinate> coordinates = (ArrayList<Coordinate>) setTrackCoordinates(uuid, directories.get(1));
 		
-		String name = fullFileName.split("\\.")[0];
-		track.setName(name);
+		//fill track with data
+		track.setId(uuid);
+		track.setType("track");
+		track.setName(fullFileName.split("\\.")[0]);
+		track.setCreated_by_name(username);
+		track.setPreview_location(directories.get(0));
+		track.setReversible(tableService.add_track(track, addTrackString(coordinates)).isReversible());
+		track.setVel(1);
+		track.setAccel((float) 0.5);
+		track.setThvmax(1);
 		
-		String created_by_name = username;
-		track.setCreated_by_name(created_by_name);
-		
-		String preview_location = previewDirectory;
-		track.setPreview_location(preview_location);
-		
-		ArrayList<Coordinate> coordinates = (ArrayList<Coordinate>) setTrackCoordinates(thetaRhoDirectory);
-		track.setCoordinates(coordinates);
-		
-		String coordinateString = addTrackString(coordinates);
-		track.setCoordinateString(coordinateString);
-		
-		
-		
+		trackRepo.save(track);
 	}
 	
 	public Track getTrack(String id) {
 		return trackRepo.findById(id).get();
 	}
 	
-	public List<Coordinate> setTrackCoordinates(String location) {
+	public List<Coordinate> setTrackCoordinates(String uuid, String location) {
     	File file = new File(location);
     	
     	Scanner input = null;
@@ -80,14 +73,14 @@ public class TrackService {
     	
     	input.close();
     	
-    	// TODO delete coordinate thr here
+    	// TODO move coordinate thr here
     	
     	return coordinates;
     }
 	
 	public String addTrackString(List<Coordinate> coordinates) {
 		StringBuilder trackString = new StringBuilder();
-		for(Coordinate coordinate : coordinates) trackString.append(coordinate.getRho() + " " + coordinate.getTheta() + "\n");
+		for(Coordinate coordinate : coordinates) trackString.append(coordinate.getRho() + " " + coordinate.getTheta() + "\\n");
 		
 		return trackString.toString();
 	}

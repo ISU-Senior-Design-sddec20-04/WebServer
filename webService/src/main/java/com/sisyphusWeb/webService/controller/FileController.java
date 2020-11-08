@@ -96,12 +96,13 @@ public class FileController {
                 .body(resource);
     }
     
-    //probably doesn't work as intended
+    //returns a list of all files, if wanting to download all files, will need to repeatedly call downloadFile using this list
     @GetMapping("/")
     public ResponseEntity<List<String>> getAllFiles() {
     	return new ResponseEntity<>(fileStorageService.getAllFiles(), HttpStatus.OK);
     }
 
+    
     @DeleteMapping("/deleteFile/{fileName:.+}")
     public ResponseEntity<String> deleteFile(@PathVariable String fileName) {
     	Boolean isDeleted = fileStorageService.removeFile(fileName);
@@ -109,12 +110,5 @@ public class FileController {
     		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     	}
     	return new ResponseEntity<>("Deleted file " + fileName, HttpStatus.OK);
-    }
-    
-    //Test request will be deleted soon...
-    @GetMapping("/convertFileTest/{fileName:.+}")
-    public String convertFile(@PathVariable String fileName) throws IOException, InterruptedException {
-    	fileStorageService.convertToTrack(fileName);
-    	return "converted";
     }
 }

@@ -15,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
 import com.google.gson.Gson;
 import com.sisyphusWeb.webService.model.table.Pause;
 import com.sisyphusWeb.webService.model.table.Play;
+import com.sisyphusWeb.webService.model.table.Playlist;
 import com.sisyphusWeb.webService.model.table.Table;
 import com.sisyphusWeb.webService.model.table.Time;
 import com.sisyphusWeb.webService.model.table.Track;
@@ -85,6 +86,7 @@ public class TableService {
 	}
 	
 	public  Time getTrackTime() {
+		
 		String httpURL = baseURL + "/get_track_time";
 		
 		HttpHeaders headers = new HttpHeaders();
@@ -139,12 +141,69 @@ public class TableService {
 		
 	}
 	
-	public void add_track() {
-		
+	public Track get_track(String id) {
+		return trackRepo.findById(id).get();
 	}
 	
-	public void set_track() {
+	public Track add_track(Track track, String coordinateString) {
 		
+		String httpURL = baseURL + "/add_track";
+
+		HttpHeaders headers = new HttpHeaders();
+
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED); 
+		
+		MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
+		map.add("data", "{\"data\":{\"id\":\"" + track.getId() + "\",\"type\":\""
+				+ track.getType() + "\",\"name\":\""
+				+ track.getName() + "\",\"verts\":\""
+				+ coordinateString + "\"}}");
+
+		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
+
+		restTemplate = new RestTemplate();
+		
+		return new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONArray("resp").getJSONObject(0).toString(), Track.class);
+	}
+	
+	public Track set_track(String name) {
+		Track track = trackRepo.findByName(name);
+		
+		String httpURL = baseURL + "/set_track";
+
+		HttpHeaders headers = new HttpHeaders();
+
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED); 
+		
+		MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
+		map.add("data", "{\"data\":{\"id\":\"" + track.getId() + "\",\"type\":\""
+				+ track.getType() + "\",\"name\":\""
+				+ track.getName() + "\"}}");
+
+		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
+
+		restTemplate = new RestTemplate();
+		
+		return new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONArray("resp").getJSONObject(0).toString(), Track.class);
+	}
+	
+	public Playlist remove_track(Track track) {
+		
+		String httpURL = baseURL + "/remove_track";
+
+		HttpHeaders headers = new HttpHeaders();
+
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED); 
+		
+		MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
+		map.add("data", "{\"data\":{\"id\":\"" + track.getId() + "\",\"type\":\""
+				+ track.getType() + "\"}}");
+
+		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
+
+		restTemplate = new RestTemplate();
+		
+		return new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONObject("resp").toString(), Playlist.class);
 	}
 	
 	

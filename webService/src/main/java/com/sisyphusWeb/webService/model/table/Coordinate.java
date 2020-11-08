@@ -1,6 +1,8 @@
 package com.sisyphusWeb.webService.model.table;
 
-public class Coordinate {
+import java.io.Serializable;
+
+public class Coordinate implements Serializable{
 	float rho;
 	
 	float theta;

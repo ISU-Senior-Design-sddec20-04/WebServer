@@ -133,7 +133,7 @@ public class FileStorageService {
     	String command;
     	String[] commandToExecute;
     	String name = fullFileName.split("\\.")[0];
-    	String previewName = name + ".png";
+    	String previewName = name + "Preview.png";
     	
     	
     	//windows commands
@@ -182,11 +182,10 @@ public class FileStorageService {
 			e.printStackTrace();
 		}
     	
-    	directories.add(converterDirectory);
-    	directories.add(previewStorageLocation.toString() + "/previewName");
+    	directories.add(previewStorageLocation.toString() + "\\previewName");
     	directories.add(converterDirectory + "\\Output_Track.thr");
     	
-    	return null;
+    	return directories;
     }
     
     public void convertPointsToThr(String directory, String fileName) {

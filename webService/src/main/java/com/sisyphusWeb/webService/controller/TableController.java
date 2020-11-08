@@ -2,6 +2,7 @@ package com.sisyphusWeb.webService.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sisyphusWeb.webService.model.table.Pause;
@@ -45,5 +46,14 @@ public class TableController {
 	 @GetMapping("/getTime")
 	 public Time getTime() {
 		 return tableService.getTrackTime();
+	 }
+	 
+	 @GetMapping("/removeTrackTest")
+	 public String removeTrack(@PathVariable String id) {
+		 Track track = tableService.get_track(id);
+		 
+		 tableService.remove_track(track);
+		 
+		 return "removed";
 	 }
 }
