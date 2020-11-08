@@ -1,5 +1,6 @@
 @import "../COLORS.css";
 
+
 .HomeWrapper {
     max-width: 960px;
     height: auto;
@@ -8,6 +9,7 @@
     border: 2px solid blue;
 
 }
+
 
 .twitchWrapper{
     max-width: 960px;
