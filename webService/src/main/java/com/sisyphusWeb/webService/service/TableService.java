@@ -187,7 +187,9 @@ public class TableService {
 		return new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONArray("resp").getJSONObject(0).toString(), Track.class);
 	}
 	
-	public Playlist remove_track(Track track) {
+	public Playlist remove_track(String id) {
+
+		Track track = trackRepo.findById(id).get();
 		
 		String httpURL = baseURL + "/remove_track";
 
@@ -203,7 +205,7 @@ public class TableService {
 
 		restTemplate = new RestTemplate();
 		
-		return new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONObject("resp").toString(), Playlist.class);
+		return new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONArray("resp").getJSONObject(0).toString(), Playlist.class);
 	}
 	
 	

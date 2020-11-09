@@ -21,7 +21,10 @@ public class User {
 	private ArrayList<String> uploadedTracks;
 	
 	public User() {
-		
+		this.name = "";
+		this.password = "";
+		this.favoriteTracks = new ArrayList<>();
+		this.uploadedTracks = new ArrayList<>();
 	}
 	
 	public User(String name, String password, ArrayList<String> favoriteTracks, ArrayList<String> uploadedTracks) {

@@ -32,6 +32,8 @@ public class FileStorageService {
     private final Path converterLocation;
     
     private final Path previewStorageLocation;
+    
+    private final Path thetaStorageLocation;
 
     @Autowired
     public FileStorageService(FileStorageProperties fileStorageProperties) {
@@ -43,6 +45,9 @@ public class FileStorageService {
         
         this.previewStorageLocation = Paths.get(fileStorageProperties.getStorageDir() + "previews/")
                 .toAbsolutePath().normalize();
+        
+        this.thetaStorageLocation = Paths.get(fileStorageProperties.getStorageDir() + "thetas/")
+        		.toAbsolutePath().normalize();
         
         try {
             Files.createDirectories(this.imageStorageLocation);
@@ -130,70 +135,97 @@ public class FileStorageService {
     	String imageLocation = imageRepository.findByfileName(fullFileName).getLocation();
     	List<String> directories = new ArrayList<String>();
     	String converterDirectory = converterLocation.toString();
-    	String command;
-    	String[] commandToExecute;
     	String name = fullFileName.split("\\.")[0];
     	String previewName = name + "Preview.png";
     	
-    	
     	//windows commands
-    	command = "copy " + imageLocation + " " + converterDirectory;
-    	commandToExecute = new String[] {"cmd.exe", "/c", command};
-    	try {
-			Runtime.getRuntime().exec(commandToExecute);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	//move image to converter directory
+    	copyWindows(imageLocation, converterDirectory);
     	
-    	command = "cd " + converterDirectory + " & py ImageToTrack.py " + fullFileName;
-    	commandToExecute = new String[] {"cmd.exe", "/c", command};
-    	try {
-			Runtime.getRuntime().exec(commandToExecute);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	//convert image
+    	executeWindows(converterDirectory,"py ImageToTrack.py", fullFileName);
     	
-    	try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	sleep(6500);
     	
-    	convertPointsToThr(converterDirectory, name);
+    	//create thr file from output
+    	executeWindows(converterDirectory,"py Calculate.py", name+".txt");
     	
-    	command = "rename " + converterDirectory + "\\" + "result.png " + previewName;
-    	commandToExecute = new String[] {"cmd.exe", "/c", command};
-    	try {
-			Runtime.getRuntime().exec(commandToExecute);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	//rename preview file
+    	renameWindows(converterDirectory + "\\result.png", previewName);
     	
-    	command = "move " + converterDirectory + "\\" + previewName + " " + previewStorageLocation.toString();
-    	commandToExecute = new String[] {"cmd.exe", "/c", command};
-    	try {
-			Runtime.getRuntime().exec(commandToExecute);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	//move output files to their respective directories
+    	moveWindows(converterDirectory+"\\"+previewName, previewStorageLocation.toString());
+    	moveWindows(converterDirectory + "\\Output_Track.thr", thetaStorageLocation.toString());
     	
-    	directories.add(previewStorageLocation.toString() + "\\previewName");
-    	directories.add(converterDirectory + "\\Output_Track.thr");
+    	directories.add(previewStorageLocation.toString() + "\\" +previewName);
+    	directories.add(thetaStorageLocation.toString() + "\\Output_Track.thr");
+    	directories.add(thetaStorageLocation.toString());
+    	
+    	//remove un-needed files
+    	deleteWindows(converterDirectory + "\\" + fullFileName);
+    	deleteWindows(converterDirectory + "\\" + name+".txt");
     	
     	return directories;
     }
     
-    public void convertPointsToThr(String directory, String fileName) {
-    	String command = "cd " + directory + " & py Calculate.py " + fileName + ".txt";
+    public void moveWindows(String source, String destination) {
+    	String command = "move " + source + " " + destination;
     	String[] commandToExecute = new String[] {"cmd.exe", "/c", command};
     	try {
 			Runtime.getRuntime().exec(commandToExecute);
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    public void copyWindows(String source, String destination) {
+    	String command = "copy " + source + " " + destination;
+    	String[] commandToExecute = new String[] {"cmd.exe", "/c", command};
+    	try {
+			Runtime.getRuntime().exec(commandToExecute);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    public void renameWindows(String source, String name) {
+    	String command = "rename " + source + " " + name;
+    	String[] commandToExecute = new String[] {"cmd.exe", "/c", command};
+    	try {
+			Runtime.getRuntime().exec(commandToExecute);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    public void deleteWindows(String source) {
+    	String command = "del " + source;
+    	String[] commandToExecute = new String[] {"cmd.exe", "/c", command};
+    	try {
+    		Runtime.getRuntime().exec(commandToExecute);
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    }
+    
+    public void executeWindows(String directory, String program, String file) {
+    	String command = "cd " + directory + " & " + program + " " + file;
+    	String[] commandToExecute = new String[] {"cmd.exe", "/c", command};
+    	try {
+			Runtime.getRuntime().exec(commandToExecute);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    public void sleep(int time) {
+    	try {
+			Thread.sleep(time);
+		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

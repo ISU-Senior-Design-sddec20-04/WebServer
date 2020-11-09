@@ -33,13 +33,15 @@ public class Track {
 	private String created_by_name;
 	
 	private String preview_location;
+	
+	private String theta_location;
 
 	public Track() {
 		
 	}
 	
 	public Track(String id, String type, int vel, float accel, int thvmax, int firstR, int lastR, String name, int _index, int start,
-			boolean reversed, boolean reversible, String created_by_name, String preview_location) {
+			boolean reversed, boolean reversible, String created_by_name, String preview_location, String theta_location) {
 		this.id = id;
 		this.type = type;
 		this.vel = vel;
@@ -54,6 +56,7 @@ public class Track {
 		this.reversible = reversible;
 		this.created_by_name = created_by_name;
 		this.preview_location = preview_location;
+		this.theta_location = theta_location;
 	}
 	
 	public String getId() {
@@ -165,5 +168,13 @@ public class Track {
 
 	public void setPreview_location(String preview_location) {
 		this.preview_location = preview_location;
+	}
+
+	public String getTheta_location() {
+		return theta_location;
+	}
+
+	public void setTheta_location(String theta_location) {
+		this.theta_location = theta_location;
 	}
 }

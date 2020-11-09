@@ -1,5 +1,7 @@
 package com.sisyphusWeb.webService.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,5 +36,13 @@ public class UserService {
 	
 	public boolean exists(String name) {
 		return userRepo.existsByName(name);
+	}
+	
+	public void addTrack(String name, String id) {
+		User user = userRepo.findByName(name);
+		ArrayList<String> tracks = user.getUploadedTracks();
+		tracks.add(id);
+		user.setUploadedTracks(tracks);
+		userRepo.save(user);
 	}
 }

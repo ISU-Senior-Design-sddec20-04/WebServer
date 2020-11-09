@@ -2,11 +2,8 @@ package com.sisyphusWeb.webService.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,10 +20,13 @@ public class UserController {
 	private UserService userService;
 	
 	@PostMapping(path="/addUser")
-	public String addNewUser(@RequestBody User user) {
-		if(userService.exists(user.getName())) {
-			return "Username: " + user.getName() + " is taken. Please choose a different one";
+	public String addNewUser(@RequestParam String name, @RequestParam String password) {
+		if(userService.exists(name)) {
+			return "Username: " + name + " is taken. Please choose a different one";
 		} else {
+			User user = new User();
+			user.setName(name);
+			user.setPassword(password);
 			userService.addUser(user);
 			return "Saved";
 		}
