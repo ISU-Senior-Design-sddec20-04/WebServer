@@ -47,11 +47,11 @@ export class CommunityTrackItem extends React.Component {
                 </div>
 
                 <div className={'CTButtons'}>
-                    <button onClick={this.toggleFav} className={'CTItemFavBtn'}>
+                    <button onClick={this.toggleFav} className={'CTItemFavBtn'} title={"Toggle track favorite"}>
                         <Favorited className={'CTItemFavBtn'} favorited={this.state.favorited}/>
                     </button>
-                    <button className={'CTItemQueueBtn'} onClick={this.queueTrack}>Queue</button>
-                    <button className={'CTItemDownloadBtn'} onClick={this.downloadTrack}>Download</button>
+                    <button className={'CTItemQueueBtn'} onClick={this.queueTrack} title={"Queue this track to table"}>Queue</button>
+                    <button className={'CTItemDownloadBtn'} onClick={this.downloadTrack} title={"Download this track"}>Download</button>
                 </div>
             </li>
         )

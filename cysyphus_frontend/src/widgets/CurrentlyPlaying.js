@@ -68,11 +68,11 @@ export class CurrentlyPlaying extends React.Component {
 
                 <div className={'CurrentlyPlayingOptionsContainer'}>
                     <PausePlayButton playing={this.state.playing} togglePlaying={this.togglePlaying}/>
-                    <button className={'SkipButton'} onClick={this.handleSkip}>
+                    <button className={'SkipButton'} onClick={this.handleSkip} title={"Skip current track"}>
                         <SkipNext/> <p>Skip</p>
                     </button>
-                    <button className={'LoopButton'} onClick={this.handleClickLoop}>
-                        <Loop/>
+                    <button className={'LoopButton'} onClick={this.handleClickLoop} title={"Loop current track"}>
+                        <LoopButton looping={this.state.looping}/>
                     </button>
                 </div>
             </div>
@@ -82,6 +82,12 @@ export class CurrentlyPlaying extends React.Component {
 
 function PausePlayButton(props){
     if(props.playing)
-        return <button className={'PausePlayButton'} onClick={props.togglePlaying}><Pause/> <p>Pause</p></button>
-    return <button className={'PausePlayButton'} onClick={props.togglePlaying}><PlayArrow/> <p>Play</p></button>
+        return <button className={'PausePlayButton'} onClick={props.togglePlaying} title={"Pause current track"}><Pause/> <p>Pause</p></button>
+    return <button className={'PausePlayButton'} onClick={props.togglePlaying} title={"Play current track"}><PlayArrow/> <p>Play</p></button>
+}
+
+function LoopButton(props){
+    if(props.looping)
+        return <Loop style={{fill: "blue"}}/>;
+    return <Loop/>;
 }

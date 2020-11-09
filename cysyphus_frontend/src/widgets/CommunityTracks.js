@@ -11,9 +11,9 @@ export class CommunityTracks extends React.Component {
         this.user = props.user;
 
         this.validSorts = {
-            BYID: 'ID',
             BYNAME: 'Name',
             BYLENGTH: 'Length',
+            //BYID: 'ID',
         };
 
         this.previewList = new Map();
@@ -113,7 +113,7 @@ export class CommunityTracks extends React.Component {
                     <input type="text" value={this.state.search} placeholder="Search.."
                            className={'CTSearch'} onChange={this.handleSearch}/>
 
-                   <button onClick={this.toggleSortFav} style={{cursor: 'pointer'}}>
+                   <button onClick={this.toggleSortFav} style={{cursor: 'pointer'}} title={"Search for favorites only"}>
                        <SearchFav searchFavsOnly={this.state.searchFavsOnly}/>
                    </button>
 

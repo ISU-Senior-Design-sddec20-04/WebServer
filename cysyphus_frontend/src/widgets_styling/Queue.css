@@ -18,13 +18,19 @@ ul.ListContainer li {
     display: flex;
     align-items: center;
 }
-.QueueItemButton, .QueueItemDragHandle{
-    padding: 0px 4px 0px 0px;
-
+.QueueItemTitle {
+    margin-left: 4px;
+    margin-right: auto;
+}
+.QueueItemReorderButton {
+    border: none;
+    padding: 0px 4px 0px 4px;
     cursor: pointer;
 }
-.QueueItemDragHandle {
-    margin-left: auto;
+
+.QueueItemButton {
+    border: none;
+    cursor: pointer;
 }
 
 
@@ -38,19 +44,25 @@ ul.ListContainer li {
 }
 .QueueAddTrack {
     background: lightgray;
+    border: none;
     text-align: center;
-
     width:100%;
+
+    font-size: 16px;
     line-height: 25px;
     cursor: pointer;
 }
 .QueueLoopButton {
-    margin-left: 4px;
+    border: none;
+    margin-left: 8px;
     line-height: 0;
+    padding-bottom: 3px;
     cursor: pointer;
 }
 .ShuffleButton {
+    border: none;
     margin-left: 4px;
     line-height: 0;
+    padding-bottom: 3px;
     cursor: pointer;
 }
