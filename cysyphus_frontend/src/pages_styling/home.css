@@ -1,5 +1,9 @@
 @import "../COLORS.css";
 
+.background{
+    background: linear-gradient(360deg, rgba(255,0,0,0), rgb(255, 0, 0));
+
+}
 
 .HomeWrapper {
     max-width: 960px;

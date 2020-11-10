@@ -3,6 +3,8 @@ import '../pages_styling/home.css'
 import hcbgImage from "./IowaStateBackground.png";
 
 
+
+
 const Home: React.FC = (props) => {
 
 
@@ -12,17 +14,11 @@ const Home: React.FC = (props) => {
 
 
 
-        <body onload="Sean()">
+        <body>
 
 
 
-            <div
-                class="bg_image"
-                style={{
-                    backgroundImage: 'url('+hcbgImage+')',
-                    backgroundRepeat: "no-repeat",
-                }}
-            >
+                <div className={'background'}>
                     <div className={'HomeWrapper'}>
                             <h1 style={{marginBottom: '4px', textAlign: 'center'}}>Home Header</h1>
                     </div>
