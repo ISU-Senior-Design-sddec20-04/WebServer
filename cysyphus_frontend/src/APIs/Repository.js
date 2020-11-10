@@ -2,16 +2,38 @@
 
 //TODO actually call backend
 //TODO most of these should be authenticated requests
+import {Track} from "../datatypes/Track";
+
 export class Repository {
 
-    static getTrack(trackID){
-        const incomingJSON = this.sampleTrackJson;
-        return JSON.parse(incomingJSON)
-        //return Object.assign(Object.create(Track.prototype), (JSON.parse(incomingJSON))); //This maps the generic obj to a Track obj
+    static baseURL = 'http://173.25.174.96:8080';
+
+    static handleErrors(response) {
+        if (!response.ok) throw Error(response.statusText);
+        return response;
+    }
+
+
+    //-----------------------------------------------------------------------------------------------------------------
+
+    static async getTrack(trackID){
+        return fetch(this.baseURL+'/getTrack?id='+trackID)
+            .then(this.handleErrors)
+            .then(response => response.json())
+            .then(track => new Track(track.id, track.name, track.created_by_name, []))
+            .catch(() => new Track(-1, "Unknown", "Unknown", []));
     }
     static getTrackPreview(trackID){
+        return fetch(this.baseURL+'/getTrackPreview?id='+trackID)
+            .then(this.handleErrors)
+            .then(response => response.json())
+            .catch(() => new Track(-1, "Unknown", "Unknown", []));
+
         const incomingJSON = this.samplePreviewJson;
         return incomingJSON
+    }
+    static getSampleTrackPreview(){
+        return this.samplePreviewJson;
     }
 
 
@@ -27,45 +49,61 @@ export class Repository {
 
     //-----------------------------------------------------------------------------------------------------------------
 
-    static getCurrentTrack(userID){
-        const incomingJSON = this.sampleTrackJson;
-        return JSON.parse(incomingJSON)
-        //return Object.assign(Object.create(Track.prototype), (JSON.parse(incomingJSON))); //This maps the generic obj to a Track obj
+    static async getCurrentTrack(userID){
+        return fetch(this.baseURL+'/active')
+            .then(this.handleErrors)
+            .then(response => response.json())
+            .then(track => new Track(track.id, track.name, track.created_by_name, []))
+            .catch(() => new Track(-1, "Unknown", "Unknown", []));
     }
-    static getCurrentTrackProgress(userID){
-        return 33;
+    static async getCurrentTrackProgress(userID){
+        return fetch(this.baseURL+'/getTime?id='+userID)
+            .then(this.handleErrors)
+            .then(response => response.json())
+            .then(time => 100 - (time.remaining_time/time.total_time)*100)
+            .catch(() => 0);
     }
 
 
     static setCurrentTrackPlaying(userID, playing){
 
     }
-    static isCurrentTrackPlaying(userID){
+    static async isCurrentTrackPlaying(userID){
         return true;
     }
 
     static setCurrentTrackLooping(userID, looping){
 
     }
-    static isCurrentTrackLooping(userID){
+    static async isCurrentTrackLooping(userID){
         return false;
     }
 
     static setCurrentTrackEraseBefore(userID, erase){
 
     }
-    static isCurrentTrackEraseBefore(userID){
+    static async isCurrentTrackEraseBefore(userID){
         return false;
+    }
+
+    static skippCurrentTrack(userID){
+
     }
 
 
     //-----------------------------------------------------------------------------------------------------------------
 
-    static getQueue(userID){
+    static async getQueue(userID){
         const incomingJSON = this.sampleTrackListJson;
         return JSON.parse(incomingJSON);
+
+        return fetch(this.baseURL+'/active')
+            .then(this.handleErrors)
+            .then(response => response.json())
+            .then(track => new Track(track.id, track.name, track.created_by_name, []))
+            .catch(() => new Track(-1, "Unknown", "Unknown", []));
     }
-    static isQueueLooping(userID){
+    static async isQueueLooping(userID){
         return false;
     }
 
@@ -84,7 +122,7 @@ export class Repository {
 
 
 
-
+//return Object.assign(Object.create(Track.prototype), (JSON.parse(incomingJSON))); //This maps the generic obj to a Track obj
 
     static sampleTrackJson = '{"id":0,"name":"Example Track","author":"God Himself","track":[{"x":45,"y":64},{"x":56,"y":98},{"x":23,"y":44}]}';
     static sampleTrackListJson =
