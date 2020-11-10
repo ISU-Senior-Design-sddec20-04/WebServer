@@ -111,6 +111,11 @@ const Home: React.FC = (props) => {
                                             I will be graduating with a bachelor's degree in Computer Engineering at Iowa State University November 2021.
                                     </p>
                             </div>
+                            <div className={'HomeWrapper'}>
+                                    <div style={{marginBottom: '4px', textAlign: 'center'}}>
+                                            <a href="https://www.linkedin.com/in/sgordon4/">More About Me</a>
+                                    </div>
+                            </div>
                     </div>
 
 
@@ -167,6 +172,11 @@ const Home: React.FC = (props) => {
                                     <p style={{marginBottom: '4px', textAlign: 'center'}}>
                                             Bio
                                     </p>
+                            </div>
+                            <div className={'HomeWrapper'}>
+                                    <div style={{marginBottom: '4px', textAlign: 'center'}}>
+                                            <a href="https://williamjosephmaston.weebly.com/">More About Me</a>
+                                    </div>
                             </div>
                     </div>
 
