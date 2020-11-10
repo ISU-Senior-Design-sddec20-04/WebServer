@@ -13,7 +13,7 @@ export class CommunityTrackItem extends React.Component {
 
         this.state = {
             favorited: props.favorited
-        }
+        };
 
         this.setFav = props.setFav;
 
@@ -32,6 +32,7 @@ export class CommunityTrackItem extends React.Component {
         Repository.queueTrack(this.user.id, this.track.id)
     }
     downloadTrack(){
+        Repository.downloadTrack(this.track.id)
         //TODO in Track.js build a function to convert it to a .thr file
     }
 
