@@ -1,6 +1,7 @@
 @import "../COLORS.css";
 
 .NavBarStyling {
+    border: 2px solid blue;
     background-color: var(--maincolor);
     width: 100%;
 }

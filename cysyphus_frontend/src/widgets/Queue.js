@@ -26,8 +26,11 @@ export class Queue extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({trackList: Repository.getQueue(this.user.id)})
-        this.setState({looping: Repository.isQueueLooping(this.user.id)})
+        this.refreshData();
+    }
+    refreshData(){
+        Repository.getQueue(this.user.id).then(trackList => this.setState({trackList: trackList}));
+        Repository.isQueueLooping(this.user.id).then(looping => this.setState({looping: looping}));
     }
 
     handleAddTrack(){   //Send to AddTrack page

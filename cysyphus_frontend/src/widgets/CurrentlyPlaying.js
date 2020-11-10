@@ -2,6 +2,7 @@ import React from 'react';
 import '../widgets_styling/CurrentlyPlaying.css'
 import {Repository} from "../APIs/Repository";
 import {Pause, PlayArrow, SkipNext, Loop} from "@material-ui/icons";
+import {Track} from "../datatypes/Track";
 
 
 export class CurrentlyPlaying extends React.Component {
@@ -13,19 +14,33 @@ export class CurrentlyPlaying extends React.Component {
 
         //These are temporary example calls, later will be on timer for api
         this.state = {
-            track: Repository.getCurrentTrack(this.user.id),
-            preview: Repository.getTrackPreview(0),
-            progress: Repository.getCurrentTrackProgress(this.user.id),
+            track: new Track(-1, "Unknown", "Unknown", []),
+            preview: Repository.getSampleTrackPreview(),
+            progress: 0,
 
-            playing: Repository.isCurrentTrackPlaying(this.user.id),
-            looping: Repository.isCurrentTrackLooping(this.user.id),
-            eraseBefore: Repository.isCurrentTrackEraseBefore(this.user.id),
-        }
+            playing: true,
+            looping: false,
+            eraseBefore: true,
+        };
 
         this.togglePlaying = this.togglePlaying.bind(this)
         this.handleSkip = this.handleSkip.bind(this)
         this.handleClickLoop = this.handleClickLoop.bind(this)
     }
+
+    componentDidMount() {
+        this.refreshData();
+    }
+    refreshData(){
+        Repository.getCurrentTrack().then(track => {this.setState({track: track}); return track})
+            .then(track => Repository.getTrackPreview(track.id)).then(preview => this.setState({preview: preview}));
+        Repository.getCurrentTrackProgress().then(progress => this.setState({progress: progress}));
+
+        Repository.isCurrentTrackPlaying(this.user.id).then(playing => this.setState({playing: playing}));
+        Repository.isCurrentTrackLooping(this.user.id).then(looping => this.setState({looping: looping}));
+        Repository.isCurrentTrackEraseBefore(this.user.id).then(eraseBefore => this.setState({eraseBefore: eraseBefore}));
+    }
+
 
     togglePlaying(){
         const playing = this.state.playing;
@@ -33,10 +48,12 @@ export class CurrentlyPlaying extends React.Component {
         Repository.setCurrentTrackPlaying(this.user.id, !playing);
     };
     handleSkip(){
-
+        Repository.skippCurrentTrack();
     }
     handleClickLoop(){
-        this.setState({looping: !this.state.looping});
+        const looping = this.state.looping;
+        this.setState({looping: !looping});
+        Repository.setCurrentTrackLooping(this.user.id, !looping);
     };
 
 
