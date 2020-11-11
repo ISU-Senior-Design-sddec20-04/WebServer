@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import {FormGroup, FormControl, FormLabel} from "react-bootstrap";
