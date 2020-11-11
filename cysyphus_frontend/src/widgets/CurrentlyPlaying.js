@@ -33,7 +33,7 @@ export class CurrentlyPlaying extends React.Component {
     }
     refreshData(){
         Repository.getCurrentTrack().then(track => {this.setState({track: track}); return track})
-            .then(track => Repository.getTrackPreview(track.id)).then(preview => this.setState({preview: preview}));
+            .then(track => Repository.getTrackPreview("a91eeb7f-210f-423a-b6c4-bf31f8f918b0")).then(preview => this.setState({preview: preview}));
         Repository.getCurrentTrackProgress().then(progress => this.setState({progress: progress}));
 
         Repository.isCurrentTrackPlaying(this.user.id).then(playing => this.setState({playing: playing}));
