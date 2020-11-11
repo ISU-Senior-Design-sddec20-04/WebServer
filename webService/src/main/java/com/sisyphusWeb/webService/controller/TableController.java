@@ -1,6 +1,7 @@
 package com.sisyphusWeb.webService.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,7 @@ import com.sisyphusWeb.webService.model.table.Time;
 import com.sisyphusWeb.webService.model.table.Track;
 import com.sisyphusWeb.webService.service.TableService;
 
+@CrossOrigin
 @RestController
 public class TableController {
 	 @Autowired
@@ -43,11 +45,6 @@ public class TableController {
 		 return "Done";
 	 }
 	 
-	 @GetMapping("/getTrack")
-	 public Track getTrack(@RequestParam String id) {
-		 return tableService.get_track(id);
-	 }
-	 
 	 @GetMapping("/setTrack")
 	 public Track setTrack(@RequestParam String name) {
 		 return tableService.set_track(name);
@@ -58,10 +55,13 @@ public class TableController {
 		 return tableService.getTrackTime();
 	 }
 	 
-	 @GetMapping("/removeTrackTest")
-	 public String removeTrack(@RequestParam("id") String id) {
-		 tableService.remove_track(id);
-		 
-		 return "removed";
+	 @GetMapping("/setLoop")
+	 public boolean setLoop(@RequestParam boolean bool) {
+		 return tableService.set_loop(bool);
+	 }
+	 
+	 @GetMapping("/isCurrentTrackLooping")
+	 public boolean isCurrentTrackLooping() {
+		 return tableService.isLooping();
 	 }
 }

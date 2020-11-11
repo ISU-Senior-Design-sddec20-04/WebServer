@@ -13,6 +13,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import com.google.gson.Gson;
+import com.sisyphusWeb.webService.model.table.BallPosition;
 import com.sisyphusWeb.webService.model.table.Pause;
 import com.sisyphusWeb.webService.model.table.Play;
 import com.sisyphusWeb.webService.model.table.Playlist;
@@ -125,20 +126,91 @@ public class TableService {
 		}
 	}
 	
-	public void start_streaming() {
+	public String start_streaming() {
+		String httpURL = baseURL + "/start_streaming";
+
+		HttpHeaders headers = new HttpHeaders();
+
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED); 
 		
+		MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
+		map.add("data", "{}");
+
+		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
+
+		restTemplate = new RestTemplate();
+		
+		return new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONArray("resp").getJSONObject(0).getString("streaming_id");
 	}
 	
-	public void add_verts() {
+	public void add_verts(String streamId, String coordinateString) {
+		String httpURL = baseURL + "/add_verts_streaming";
+
+		HttpHeaders headers = new HttpHeaders();
+
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED); 
 		
+		MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
+		map.add("data", "{\"data\":{\"id\":\"" + streamId + "\",\"verts\":\""
+				+ coordinateString + "\"}}");
+
+		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
+
+		restTemplate = new RestTemplate();
+		
+		new JSONObject(restTemplate.postForObject(httpURL, request, String.class));
 	}
 	
-	public void clear_verts() {
+	public void clear_verts(String streamId, String coordinateString) {
+		String httpURL = baseURL + "/clear_verts_streaming";
+
+		HttpHeaders headers = new HttpHeaders();
+
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED); 
 		
+		MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
+		map.add("data", "{\"data\":{\"id\":\"" + streamId + "\",\"verts\":\""
+				+ coordinateString + "\"}}");
+
+		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
+
+		restTemplate = new RestTemplate();
+		
+		new JSONObject(restTemplate.postForObject(httpURL, request, String.class));
 	}
 	
-	public void stop_streaming() {
+	public BallPosition get_ball_position() {
+		String httpURL = baseURL + "/get_ball_position";
 		
+		HttpHeaders headers = new HttpHeaders();
+		
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+		
+		MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
+		map.add("data", "{}");
+		
+		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
+		
+		restTemplate = new RestTemplate();
+		
+		return new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONObject("resp").toString(), BallPosition.class);
+	}
+	
+	public void stop_streaming(String streamId) {
+		String httpURL = baseURL + "/stop_streaming";
+
+		HttpHeaders headers = new HttpHeaders();
+
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED); 
+		
+		MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
+		map.add("data", "{\"data\":{\"id\":\"" + streamId + "\"}}");
+
+		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
+
+		restTemplate = new RestTemplate();
+		
+		new JSONObject(restTemplate.postForObject(httpURL, request, String.class));
 	}
 	
 	public Track get_track(String id) {
@@ -166,8 +238,8 @@ public class TableService {
 		return new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONArray("resp").getJSONObject(0).toString(), Track.class);
 	}
 	
-	public Track set_track(String name) {
-		Track track = trackRepo.findByName(name);
+	public Track set_track(String id) {
+		Track track = trackRepo.findById(id).get();
 		
 		String httpURL = baseURL + "/set_track";
 
@@ -208,11 +280,26 @@ public class TableService {
 		return new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONArray("resp").getJSONObject(0).toString(), Playlist.class);
 	}
 	
+	public boolean set_loop(boolean bool) {
+		String httpURL = baseURL + "/set_loop";
+		
+		HttpHeaders headers = new HttpHeaders();
+
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED); 
+		
+		MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
+		map.add("data", "{\"data\":{\"value\":\"" + bool + "\"}}");
+
+		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
+
+		restTemplate = new RestTemplate();
+		
+		Table table = new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONArray("resp").getJSONObject(1).toString(), Table.class);
 	
-//	@Scheduled(fixedRate=10000)
-//	public void updateQueue() {
-//		if(getActiveTrack().equals(null)) {
-//			
-//		}
-//	}
+		return table.isIs_loop();
+	}
+	
+	public boolean isLooping() {
+		return getInfo().isIs_loop();
+	}
 }

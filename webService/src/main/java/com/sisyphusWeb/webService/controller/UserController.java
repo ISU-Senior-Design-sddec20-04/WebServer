@@ -1,6 +1,7 @@
 package com.sisyphusWeb.webService.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -11,6 +12,7 @@ import com.sisyphusWeb.webService.model.User;
 import com.sisyphusWeb.webService.repository.UserRepository;
 import com.sisyphusWeb.webService.service.UserService;
 
+@CrossOrigin
 @RestController
 public class UserController {
 	@Autowired
@@ -39,7 +41,8 @@ public class UserController {
 	
 	@GetMapping(path="/getUser")
 	public User getUser(@RequestParam String name) {
-		return userService.returnUser(name);
+		User user = userService.getUser(name);
+		return user;
 	}
 	
 	@PutMapping(path="/updateUserPassword")

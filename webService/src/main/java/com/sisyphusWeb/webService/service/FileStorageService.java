@@ -145,7 +145,12 @@ public class FileStorageService {
     	//convert image
     	executeWindows(converterDirectory,"py ImageToTrack.py", fullFileName);
     	
-    	sleep(6500);
+//    	sleep(6500);
+//    	Path path = Paths.get(converterDirectory+"\\"+name+".txt").toAbsolutePath().normalize();
+//    	Path path2 = Paths.get(converterDirectory+"\\result.png").toAbsolutePath().normalize();
+//    	while(!(Files.exists(path)&&Files.exists(path2))) {
+//    		if(Files.exists(path)&&Files.exists(path2)) break;
+//    	}
     	
     	//create thr file from output
     	executeWindows(converterDirectory,"py Calculate.py", name+".txt");
@@ -164,6 +169,8 @@ public class FileStorageService {
     	//remove un-needed files
     	deleteWindows(converterDirectory + "\\" + fullFileName);
     	deleteWindows(converterDirectory + "\\" + name+".txt");
+    	
+    	sleep(3000);
     	
     	return directories;
     }
@@ -215,7 +222,13 @@ public class FileStorageService {
     	String command = "cd " + directory + " & " + program + " " + file;
     	String[] commandToExecute = new String[] {"cmd.exe", "/c", command};
     	try {
-			Runtime.getRuntime().exec(commandToExecute);
+			Process proc = Runtime.getRuntime().exec(commandToExecute);
+			try {
+				proc.waitFor();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

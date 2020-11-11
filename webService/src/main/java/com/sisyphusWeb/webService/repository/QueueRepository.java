@@ -1,9 +1,13 @@
 package com.sisyphusWeb.webService.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import com.sisyphusWeb.webService.model.table.Queue;
+import com.sisyphusWeb.webService.model.table.QueueItem;
 
-public interface QueueRepository extends JpaRepository<Queue, String>{
-
+@Repository
+public interface QueueRepository extends JpaRepository<QueueItem, Long>{
+	QueueItem findByTrackId(String trackId);
+	
+	boolean existsByTrackId(String trackId);
 }
