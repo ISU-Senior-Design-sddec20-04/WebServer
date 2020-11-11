@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Component} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {User} from "./datatypes/User";
 import NavBar from './widgets/NavBar';
@@ -7,6 +7,7 @@ import settings from "./pages/Settings";
 import MyTableFrame from "./pages/MyTable";
 import CommunityFrame from "./pages/Community";
 import Login from "./pages/Login"
+import SignUp from "./pages/SignUp";
 
 
 const user = new User(123, "Sample User");
@@ -25,6 +26,7 @@ function App() {
                         <Route path="/my-table" exact component={packageTableParams}/>
                         <Route path="/login" exact component={Login}/>
                         <Route path="/settings" exact component={settings}/>
+                        <Route path="/Signup" exact component={SignUp} />
 
                     </Switch>
 
