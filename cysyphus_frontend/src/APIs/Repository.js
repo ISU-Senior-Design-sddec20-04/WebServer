@@ -24,13 +24,10 @@ export class Repository {
             .catch(() => new Track(-1, "Unknown", "Unknown", []));
     }
     static getTrackPreview(trackID){
-        return fetch(this.baseURL+'/getTrackPreview?id='+trackID)
+        return fetch(this.baseURL+'/getTrackPreviw?id='+trackID)
             .then(this.handleErrors)
             .then(response => response.json())
-            .catch(() => new Track(-1, "Unknown", "Unknown", []));
-
-        const incomingJSON = this.samplePreviewJson;
-        return incomingJSON
+            .catch(() => this.samplePreviewJson);
     }
     static getSampleTrackPreview(){
         return this.samplePreviewJson;
@@ -40,6 +37,11 @@ export class Repository {
     static getAllTracks(){
         const incomingJSON = this.sampleTrackListJson;
         return JSON.parse(incomingJSON);
+        return fetch(this.baseURL+'/getAllTracks')
+            .then(this.handleErrors)
+            .then(response => response.json())
+            .then(tracks => console.log(tracks))
+            .catch(() => []);
     }
     static getAllPreviews(){
         const incomingJSON = this.samplePreviewListJson;
@@ -73,7 +75,7 @@ export class Repository {
     }
 
     static setCurrentTrackLooping(userID, looping){
-
+        return fetch(this.baseURL+'/setLoop?id='+userID+'&bool='+looping);
     }
     static async isCurrentTrackLooping(userID){
         return false;
@@ -117,6 +119,9 @@ export class Repository {
         //do something
     }
     static queueTrack(userID, trackID){
+        //do something
+    }
+    static downloadTrack(trackID){
         //do something
     }
 

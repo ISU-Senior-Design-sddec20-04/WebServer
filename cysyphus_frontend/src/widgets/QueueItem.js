@@ -2,6 +2,7 @@ import React from "react";
 import {Delete, KeyboardArrowDown, KeyboardArrowUp} from "@material-ui/icons";
 import Icon from '@mdi/react'
 import { mdiEraser } from '@mdi/js';
+import {Repository} from "../APIs/Repository";
 
 export class QueueItem extends React.Component {
     constructor(props) {
@@ -21,7 +22,9 @@ export class QueueItem extends React.Component {
 
 
     handleEraser(){
-        this.setState({eraseBefore: !this.state.eraseBefore})
+        const eraseBefore = this.state.eraseBefore;
+        this.setState({playing: !eraseBefore});
+        Repository.setCurrentTrackPlaying(this.user.id, !eraseBefore);
     }
 
     render() {

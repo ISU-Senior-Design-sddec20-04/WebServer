@@ -34,7 +34,9 @@ export class CommunityTracks extends React.Component {
         this.toggleSortFav = this.toggleSortFav.bind(this);
         this.setIDFavorited = this.setIDFavorited.bind(this);
     }
-
+    componentDidMount() {
+        this.refreshData();
+    }
     componentDidMount() {
         const trackList = this.sortTracksBy(Repository.getAllTracks(this.user.id), this.state.searchSort);
         const sortedTracklist = this.sortTracksBy(trackList, this.state.searchSort);
@@ -46,6 +48,13 @@ export class CommunityTracks extends React.Component {
         //Make calls to the repository
         this.previewList = Repository.getAllPreviews();     //This is a Map
         this.setState({favoritesList: Repository.getUserFavorites(this.user.id)})
+    }
+
+    refreshData(){
+        Repository.getAllTracks();
+
+        Repository.getQueue(this.user.id).then(trackList => this.setState({trackList: trackList}));
+        Repository.isQueueLooping(this.user.id).then(looping => this.setState({looping: looping}));
     }
 
 
@@ -98,6 +107,8 @@ export class CommunityTracks extends React.Component {
             favs.delete(trackID);
             this.setState({favoritesList: favs})
         }
+
+        Repository.setUserFavoritedTrack(this.user.id, trackID, favorited);
 
         //Don't re-sort here, gives a chance to undo if the click was a mistake
         //this.setState({searchedTracks: this.searchTracksFor(this.state.trackList, this.state.search, !currentSearchFavs)})
