@@ -22,46 +22,50 @@ public class UserService {
 		userRepo.save(user);
 	}
 	
-	public User getUser(String name) {
-		return userRepo.findByName(name);
+	public User getUser(int id) {
+		return userRepo.findById(id).get();
 	}
 	
-	public void updatePassword(String name, String password) {
-		User user = userRepo.findByName(name);
+	public ArrayList<String> getUserFavorites(int id) {
+		return userRepo.findById(id).get().getFavoriteTracks();
+	}
+	
+	public void updatePassword(int id, String password) {
+		User user = userRepo.findById(id).get();
 		user.setPassword(password);
 		userRepo.save(user);
 	}
 	
-	public void updateUsername(String name, String newName) {
-		User user = userRepo.findByName(name);
+	public void updateUsername(int id, String newName) {
+		User user = userRepo.findById(id).get();
 		user.setName(newName);
 		userRepo.save(user);
 	}
 	
-	public boolean exists(String name) {
-		return userRepo.existsByName(name);
+	public boolean exists(int id) {
+		return userRepo.existsById(id);
 	}
 	
-	public void addTrack(String name, String id) {
-		User user = userRepo.findByName(name);
+	public void addTrack(int id, String trackId) {
+		User user = userRepo.findById(id).get();
 		ArrayList<String> tracks = user.getUploadedTracks();
-		tracks.add(id);
+		tracks.add(trackId);
 		user.setUploadedTracks(tracks);
 		userRepo.save(user);
 	}
 	
-	public void addFavoritedTrack(String name, String id) {
-		User user = userRepo.findByName(name);
+	public void addFavoritedTrack(int id, String trackId) {
+		User user = userRepo.findById(id).get();
 		ArrayList<String> tracks = user.getFavoriteTracks();
-		tracks.add(id);
+		tracks.add(trackId);
 		user.setFavoriteTracks(tracks);
 		userRepo.save(user);
 	}
 	
-	public void removeFavoritedTrack(String name, String id) {
-		User user = userRepo.findByName(name);
+	public void removeFavoritedTrack(int id, String trackId) {
+		User user = userRepo.findById(id).get();
 		ArrayList<String> tracks = user.getFavoriteTracks();
-		tracks.remove(trackRepo.findById(id).get().getId());
+		tracks.remove(trackRepo.findById(trackId).get().getId());
 		user.setFavoriteTracks(tracks);
 		userRepo.save(user);
 	}

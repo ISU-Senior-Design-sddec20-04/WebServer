@@ -55,7 +55,7 @@ public class TrackService {
 		return userTracks;
 	}
 	//directory at 1st index will be the preview Directory, directory at second will be the location of the thr file, 3rd index will be the directory of the thr files
-	public void addTrack(List<String> directories, String fullFileName, String username) {
+	public void addTrack(List<String> directories, String fullFileName, int userId) {
 		
 		Track track = new Track();
 		
@@ -68,14 +68,14 @@ public class TrackService {
 		track.setId(uuid);
 		track.setType("track");
 		track.setName(fullFileName.split("\\.")[0]);
-		track.setCreated_by_name(username);
+		track.setCreated_by_name(userRepo.findById(userId).get().getName());
 		track.setPreview_location(directories.get(0));
-		track.setTheta_location(directories.get(2) + uuid+".thr");
+		track.setTheta_location(directories.get(2) + "\\" + uuid+".thr");
 		track.setReversible(tableService.add_track(track, addTrackString(coordinates)).isReversible());
 		
 		trackRepo.save(track);
 		
-		userService.addTrack(username, track.getId());
+		userService.addTrack(userId, track.getId());
 	}
 	
 	public String removeTrack(String id) {
@@ -122,7 +122,15 @@ public class TrackService {
 	
 	public String streamStringBuilder(List<Coordinate> coordinates) {
 		StringBuilder trackString = new StringBuilder();
-		for(Coordinate coordinate : coordinates) trackString.append("{\"th\":" + coordinate.getTheta() + ",\"r\":" + coordinate.getRho() + "},");
+		boolean isFirst = true;
+		for(Coordinate coordinate : coordinates) {
+			if(isFirst) {
+				trackString.append("{\"th\":" + coordinate.getTheta() + ",\"r\":" + coordinate.getRho() + "}");
+				isFirst = false;
+			} else {
+				trackString.append(",{\"th\":" + coordinate.getTheta() + ",\"r\":" + coordinate.getRho() + "}");
+			}
+		}
 		
 		return trackString.toString();
 	}

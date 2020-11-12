@@ -1,8 +1,10 @@
-package com.sisyphusWeb.webService.model.table;
+package com.sisyphusWeb.webService.payload;
 
 import javax.persistence.OneToOne;
 
-public class Play {
+import com.sisyphusWeb.webService.model.table.Track;
+
+public class PlayResponse {
 
 	private String id;
 	
@@ -13,11 +15,11 @@ public class Play {
 	@OneToOne
 	private Track active_track;
 	
-	public Play() {
+	public PlayResponse() {
 		
 	}
 
-	public Play(String id, boolean is_waiting_between_tracks, String state, Track active_track) {
+	public PlayResponse(String id, boolean is_waiting_between_tracks, String state, Track active_track) {
 		this.id = id;
 		this.is_waiting_between_tracks = is_waiting_between_tracks;
 		this.state = state;

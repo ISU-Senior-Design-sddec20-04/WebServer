@@ -1,7 +1,6 @@
 package com.sisyphusWeb.webService.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,7 +28,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.sisyphusWeb.webService.payload.UploadFileResponse;
 import com.sisyphusWeb.webService.service.FileStorageService;
 import com.sisyphusWeb.webService.service.TrackService;
-import com.sisyphusWeb.webService.service.UserService;
 
 @CrossOrigin
 @RestController
@@ -41,36 +39,33 @@ public class FileController {
     private FileStorageService fileStorageService;
     
     @Autowired
-    private UserService userService;
-    
-    @Autowired
     private TrackService trackService;
     
     @PostMapping("/uploadFile")
-    public UploadFileResponse uploadFile(@RequestParam String name, @RequestParam("file") MultipartFile file) {
-    	if(!userService.exists(name)) return new UploadFileResponse("This user does not exist", "", "", 0);
+    public UploadFileResponse uploadFile(@RequestParam int userId, @RequestParam("file") MultipartFile file) {
+//    	if(!userService.exists(name)) return new UploadFileResponse("This user does not exist", "", "", 0);
     	
         String fileName = fileStorageService.storeFile(file);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/" + name + "/downloadFile/")
+                .path("/" + userId + "/downloadFile/")
                 .path(fileName)
                 .toUriString();
         
         List<String> directories = fileStorageService.convertToTrack(fileName);
         
-        trackService.addTrack(directories, fileName, name);
+        trackService.addTrack(directories, fileName, userId);
         
         return new UploadFileResponse(fileName, fileDownloadUri,
                 file.getContentType(), file.getSize());
     }
 
     @PostMapping("/uploadMultipleFiles")
-    public List<UploadFileResponse> uploadMultipleFiles(@RequestParam String name, @RequestParam("files") MultipartFile[] files) {
-    	if(!userService.exists(name)) return new ArrayList<UploadFileResponse>(Arrays.asList(new UploadFileResponse("This user does not exist", "", "", 0)));
+    public List<UploadFileResponse> uploadMultipleFiles(@RequestParam int userId, @RequestParam("files") MultipartFile[] files) {
+//    	if(!userService.exists(name)) return new ArrayList<UploadFileResponse>(Arrays.asList(new UploadFileResponse("This user does not exist", "", "", 0)));
     	return Arrays.asList(files)
                 .stream()
-                .map(file -> uploadFile(name, file))
+                .map(file -> uploadFile(userId, file))
                 .collect(Collectors.toList());
     }
 

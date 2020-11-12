@@ -1,15 +1,15 @@
-package com.sisyphusWeb.webService.model.table;
+package com.sisyphusWeb.webService.payload;
 
-public class Time {
+public class TimeResponse {
 	private int remaining_time;
 	
 	private int total_time;
 	
-	public Time() {
+	public TimeResponse() {
 		
 	}
 	
-	public Time(int remaining_time, int total_time) {
+	public TimeResponse(int remaining_time, int total_time) {
 		this.remaining_time = remaining_time;
 		this.total_time = total_time;
 	}

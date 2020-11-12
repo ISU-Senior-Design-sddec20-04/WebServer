@@ -1,5 +1,7 @@
 package com.sisyphusWeb.webService.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,15 +25,12 @@ public class UserController {
 	
 	@PostMapping(path="/addUser")
 	public String addNewUser(@RequestParam String name, @RequestParam String password) {
-		if(userService.exists(name)) {
-			return "Username: " + name + " is taken. Please choose a different one";
-		} else {
-			User user = new User();
-			user.setName(name);
-			user.setPassword(password);
-			userService.addUser(user);
-			return "Saved";
-		}
+		
+		User user = new User();
+		user.setName(name);
+		user.setPassword(password);
+		userService.addUser(user);
+		return "Saved";
 	}
 	
 	@GetMapping(path="/getAllUsers")
@@ -40,20 +39,35 @@ public class UserController {
 	}
 	
 	@GetMapping(path="/getUser")
-	public User getUser(@RequestParam String name) {
-		User user = userService.getUser(name);
+	public User getUser(@RequestParam int id) {
+		User user = userService.getUser(id);
 		return user;
 	}
 	
+	@GetMapping("/getUserFavorites")
+	public ArrayList<String> getUserFavorites(@RequestParam int id) {
+		return userService.getUserFavorites(id);
+	}
+	
 	@PutMapping(path="/updateUserPassword")
-	public String updateUserPassword(@RequestParam String name, @RequestParam String password) {
-		userService.updatePassword(name, password);
+	public String updateUserPassword(@RequestParam int id, @RequestParam String password) {
+		userService.updatePassword(id, password);
 		return "Passowrd updated";
 	}
 	
 	@PutMapping(path="/updateUsername")
-	public String updateUserName(@RequestParam String name, @RequestParam String newName) {
-		userService.updateUsername(name, newName);
-		return "User: " + name + " updated to " + newName;
+	public String updateUserName(@RequestParam int id, @RequestParam String newName) {
+		userService.updateUsername(id, newName);
+		return "User: " + id + " updated to " + newName;
+	}
+	
+	@PutMapping("/addTrackToFavorites")
+	public void addToUserFavorite(@RequestParam int id, @RequestParam String trackId) {
+		userService.addFavoritedTrack(id, trackId);
+	}
+	
+	@PutMapping("/removeTrackFromFavorites") 
+	public void removeFromUserFavorites(@RequestParam int id, @RequestParam String trackId) {
+		userService.removeFavoritedTrack(id, trackId);
 	}
 }

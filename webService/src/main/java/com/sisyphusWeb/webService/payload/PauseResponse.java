@@ -1,15 +1,15 @@
-package com.sisyphusWeb.webService.model.table;
+package com.sisyphusWeb.webService.payload;
 
-public class Pause {
+public class PauseResponse {
 	private String id;
 	
 	private String state;
 	
-	public Pause() {
+	public PauseResponse() {
 		
 	}
 	
-	public Pause(String id, String state) {
+	public PauseResponse(String id, String state) {
 		this.id = id;
 		this.state = state;
 	}

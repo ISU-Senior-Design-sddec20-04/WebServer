@@ -14,12 +14,12 @@ import org.springframework.web.client.RestTemplate;
 
 import com.google.gson.Gson;
 import com.sisyphusWeb.webService.model.table.BallPosition;
-import com.sisyphusWeb.webService.model.table.Pause;
-import com.sisyphusWeb.webService.model.table.Play;
 import com.sisyphusWeb.webService.model.table.Playlist;
 import com.sisyphusWeb.webService.model.table.Table;
-import com.sisyphusWeb.webService.model.table.Time;
 import com.sisyphusWeb.webService.model.table.Track;
+import com.sisyphusWeb.webService.payload.PauseResponse;
+import com.sisyphusWeb.webService.payload.PlayResponse;
+import com.sisyphusWeb.webService.payload.TimeResponse;
 import com.sisyphusWeb.webService.repository.TrackRepository;
 
 @Service
@@ -34,7 +34,7 @@ public class TableService {
 		this.restTemplate = restTemplateBuilder.build();
 	}
 	
-	public Play play() {
+	public PlayResponse play() {
 		
 		String httpURL = baseURL + "/play";
 
@@ -49,10 +49,10 @@ public class TableService {
 
 		restTemplate = new RestTemplate();
 		
-		return new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONObject("resp").toString(), Play.class);
+		return new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONObject("resp").toString(), PlayResponse.class);
 	}
 	
-	public Pause pause() {
+	public PauseResponse pause() {
 		String httpURL = baseURL + "/pause";
 
 		HttpHeaders headers = new HttpHeaders();
@@ -66,7 +66,7 @@ public class TableService {
 
 		restTemplate = new RestTemplate();
 		
-		return new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONObject("resp").toString(), Pause.class);
+		return new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONObject("resp").toString(), PauseResponse.class);
 	}
 	
 	public JSONArray connect() {
@@ -86,7 +86,7 @@ public class TableService {
 		return new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONArray("resp");
 	}
 	
-	public  Time getTrackTime() {
+	public  TimeResponse getTrackTime() {
 		
 		String httpURL = baseURL + "/get_track_time";
 		
@@ -101,7 +101,7 @@ public class TableService {
 		
 		restTemplate = new RestTemplate();
 		
-		return new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONObject("resp").toString(), Time.class);
+		return new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONObject("resp").toString(), TimeResponse.class);
 	}
 	
 	public Table getInfo() {
@@ -126,6 +126,23 @@ public class TableService {
 		}
 	}
 	
+	public BallPosition get_ball_position() {
+		String httpURL = baseURL + "/get_ball_position";
+		
+		HttpHeaders headers = new HttpHeaders();
+		
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+		
+		MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
+		map.add("data", "{}");
+		
+		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
+		
+		restTemplate = new RestTemplate();
+		
+		return new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONObject("resp").toString(), BallPosition.class);
+	}
+	
 	public String start_streaming() {
 		String httpURL = baseURL + "/start_streaming";
 
@@ -134,7 +151,7 @@ public class TableService {
 		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED); 
 		
 		MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
-		map.add("data", "{}");
+		map.add("data", "{\"data\":{\"start_rho\":1,\"verts\":[{\"r\":1,\"th\":0}]}}");
 
 		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
 
@@ -151,8 +168,8 @@ public class TableService {
 		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED); 
 		
 		MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
-		map.add("data", "{\"data\":{\"id\":\"" + streamId + "\",\"verts\":\""
-				+ coordinateString + "\"}}");
+		map.add("data", "{\"data\":{\"id\":\"" + streamId + "\",\"verts\":["
+				+ coordinateString + "]}}");
 
 		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
 
@@ -169,31 +186,14 @@ public class TableService {
 		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED); 
 		
 		MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
-		map.add("data", "{\"data\":{\"id\":\"" + streamId + "\",\"verts\":\""
-				+ coordinateString + "\"}}");
+		map.add("data", "{\"data\":{\"id\":\"" + streamId + "\",\"verts\":["
+				+ coordinateString + "]}}");
 
 		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
 
 		restTemplate = new RestTemplate();
 		
 		new JSONObject(restTemplate.postForObject(httpURL, request, String.class));
-	}
-	
-	public BallPosition get_ball_position() {
-		String httpURL = baseURL + "/get_ball_position";
-		
-		HttpHeaders headers = new HttpHeaders();
-		
-		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-		
-		MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
-		map.add("data", "{}");
-		
-		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
-		
-		restTemplate = new RestTemplate();
-		
-		return new Gson().fromJson(new JSONObject(restTemplate.postForObject(httpURL, request, String.class)).getJSONObject("resp").toString(), BallPosition.class);
 	}
 	
 	public void stop_streaming(String streamId) {

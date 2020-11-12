@@ -6,11 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sisyphusWeb.webService.model.table.Pause;
-import com.sisyphusWeb.webService.model.table.Play;
 import com.sisyphusWeb.webService.model.table.Table;
-import com.sisyphusWeb.webService.model.table.Time;
 import com.sisyphusWeb.webService.model.table.Track;
+import com.sisyphusWeb.webService.payload.PauseResponse;
+import com.sisyphusWeb.webService.payload.PlayResponse;
+import com.sisyphusWeb.webService.payload.TimeResponse;
+import com.sisyphusWeb.webService.service.QueueService;
 import com.sisyphusWeb.webService.service.TableService;
 
 @CrossOrigin
@@ -19,13 +20,16 @@ public class TableController {
 	 @Autowired
 	 private TableService tableService;
 	 
+	 @Autowired
+	 private QueueService queueService;
+	 
 	 @GetMapping("/play")
-	 public Play playTable() {
+	 public PlayResponse playTable() {
 	   	return tableService.play();
 	 }
 	    
 	 @GetMapping("/pause")
-	 public Pause pauseTable() {
+	 public PauseResponse pauseTable() {
 	  	return tableService.pause();
 	 }
 	 
@@ -51,7 +55,7 @@ public class TableController {
 	 }
 	 
 	 @GetMapping("/getTime")
-	 public Time getTime() {
+	 public TimeResponse getTime() {
 		 return tableService.getTrackTime();
 	 }
 	 
@@ -63,5 +67,34 @@ public class TableController {
 	 @GetMapping("/isCurrentTrackLooping")
 	 public boolean isCurrentTrackLooping() {
 		 return tableService.isLooping();
+	 }
+	 
+	 @GetMapping("/openStream")
+	 public String startStream() {
+		 return tableService.start_streaming();
+	 }
+	 
+	 @GetMapping("/sendClear")
+	 public String sendClear(@RequestParam String streamId) {
+		queueService.sendClear(streamId);
+		return "Clear sent";
+	 }
+	 
+	 @GetMapping("/sendTrack") 
+	 public String sendTrack(@RequestParam String streamId, @RequestParam String trackId) {
+		 queueService.sendTrack(streamId, trackId);
+		 return "Track " + trackId + " sent";
+	 }
+	 
+	 @GetMapping("/sendTrackByCoords")
+	 public String sendTrackByCoords(@RequestParam String streamId, @RequestParam String trackId) {
+		 queueService.sendTrackByCoord(streamId, trackId);
+		 return "Track " + trackId + " sent";
+	 }
+	 
+	 @GetMapping("/closeStream")
+	 public String stopStream(@RequestParam String streamId) {
+		 tableService.stop_streaming(streamId);
+		 return "Stream stopped";
 	 }
 }
