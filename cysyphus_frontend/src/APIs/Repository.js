@@ -24,9 +24,9 @@ export class Repository {
             .catch(() => new Track(-1, "Unknown", "Unknown", []));
     }
     static getTrackPreview(trackID){
-        return fetch(this.baseURL+'/getTrackPreviw?id='+trackID)
+        return fetch(this.baseURL+'/getTrackPreview?id='+trackID)
             .then(this.handleErrors)
-            .then(response => response.json())
+            .then(response => response.url)
             .catch(() => this.samplePreviewJson);
     }
     static getSampleTrackPreview(){
