@@ -6,7 +6,8 @@ import Home from "./pages/Home";
 import settings from "./pages/Settings";
 import MyTableFrame from "./pages/MyTable";
 import CommunityFrame from "./pages/Community";
-import Login from "./pages/Login"
+import Login from "./pages/Login";
+
 import SignUp from "./pages/SignUp";
 
 
@@ -25,6 +26,7 @@ function App() {
                         <Route path="/community" exact component={packageCommunityParams}/>
                         <Route path="/my-table" exact component={packageTableParams}/>
                         <Route path="/login" exact component={Login}/>
+                        <Route path="/signup" exact component={SignUp}/>
                         <Route path="/settings" exact component={settings}/>
                         <Route path="/Signup" exact component={SignUp} />
 

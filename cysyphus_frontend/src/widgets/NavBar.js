@@ -11,7 +11,8 @@ const NavBar = () => {
             <NavLink to="/my-table" className="LinkStyle">My Table</NavLink>
             <NavLink to="/Settings" className="SettingsButton">Settings</NavLink>
             <NavLink to="/login" className="LoginButton">Log In</NavLink>
-            <NavLink to="/Signup" className="SignupButton">Sign Up</NavLink>
+
+            <NavLink to="signup" className = "SignUpButton">Sign UP</NavLink> 
 
         </div>
     )
