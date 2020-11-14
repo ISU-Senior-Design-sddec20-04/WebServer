@@ -2,7 +2,27 @@
 
 .background{
     background: linear-gradient(360deg, rgba(255,0,0,0), rgb(255, 0, 0));
+    background-size:cover;
+    min-height:100%;
+}
 
+.Border{
+    background: linear-gradient(360deg, rgba(255,255,255,255), rgb(255,255, 255));
+    background-size:cover;
+    max-width: 960px;
+    height: auto;
+    width: auto;
+    margin: 0px auto 0px auto;
+    border: 4px Solid Black;
+
+}
+
+.Spacing{
+    max-width: 960px;
+    height: auto;
+    width: auto;
+    margin: 0px auto 0px auto;
+    border: 4px;
 }
 
 .HomeWrapper {
@@ -10,7 +30,7 @@
     height: auto;
     width: auto;
     margin: 5px auto 5px auto;
-    border: 2px ;
+    border: 2px;
 
 }
 
