@@ -80,6 +80,7 @@
 .OptionsButton, .TrackOptions, .LoopButton {
 }
 .CPButtonWrapper, .PausePlayButton, .SkipButton, .LoopButton {
+    background: none;
     border: none;
     display: flex;
     align-items: center;
