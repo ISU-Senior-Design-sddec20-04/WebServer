@@ -21,6 +21,7 @@ ul.ListContainer li {
 .QueueItemTitle {
     margin-left: 4px;
     margin-right: auto;
+    font-size: 20px;
 }
 .QueueItemReorderButton {
     border: none;

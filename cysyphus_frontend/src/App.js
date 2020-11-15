@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {User} from "./datatypes/User";
 import NavBar from './widgets/NavBar';
@@ -11,7 +11,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 
 
-const user = new User(123, "Sample User");
+const user = new User(6, "Sam");
 
 function App() {
         return (

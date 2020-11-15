@@ -66,6 +66,8 @@ export class Queue extends React.Component {
 
         items.splice(position, 1);
         this.setState({trackList: items});
+
+        Repository.removeQueueTrack(this.user.id, id);
     }
 
     render() {
@@ -102,7 +104,7 @@ function QueueTrackList(props){
 
     return props.trackList.map((track) =>
         <QueueItem key={track.id} track={track} handleReorder={props.reorder}
-                   handleDelete={props.delete.bind(this,track.id)}/>
+                   handleDelete={props.delete.bind(this,track.id)} eraseBefore={track.eraseBefore}/>
     );
 }
 

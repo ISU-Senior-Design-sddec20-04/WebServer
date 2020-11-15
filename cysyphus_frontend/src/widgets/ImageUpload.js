@@ -16,6 +16,7 @@ export class ImageUpload extends React.Component {
             })
         }
 
+        //TODO Move this to the Repository
         fileUploadHandler = () => {
             const formData = new FormData();
             formData.append(

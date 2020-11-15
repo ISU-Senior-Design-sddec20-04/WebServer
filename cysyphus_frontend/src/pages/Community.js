@@ -3,8 +3,6 @@ import '../pages_styling/Community.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import {CommunityTracks} from "../widgets/CommunityTracks";
-import {TrackUpload} from "../widgets/TrackUpload";
-import {ImageUpload} from "../widgets/ImageUpload"
 import UploadFiles from "../widgets/UploadFileWidget";
 
 

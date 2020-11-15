@@ -20,7 +20,7 @@ export class CommunityTracks extends React.Component {
 
         this.state = {
             trackList: [],
-            favoritesList: [],
+            favoritesList: new Set(),
 
             searchedTracks: [],
 
@@ -35,26 +35,23 @@ export class CommunityTracks extends React.Component {
         this.setIDFavorited = this.setIDFavorited.bind(this);
     }
     componentDidMount() {
-        this.refreshData();
-    }
-    componentDidMount() {
-        const trackList = this.sortTracksBy(Repository.getAllTracks(this.user.id), this.state.searchSort);
-        const sortedTracklist = this.sortTracksBy(trackList, this.state.searchSort);
-
-        this.setState({trackList: sortedTracklist});
-        this.setState({searchedTracks: sortedTracklist});
-
+        Repository.getAllTracks(this.user.id)
+            .then(tracks => this.sortTracksBy(tracks, this.state.searchSort))
+            .then(trackList => {
+                this.setState({trackList: trackList});
+                this.setState({searchedTracks: trackList});
+            });
 
         //Make calls to the repository
         this.previewList = Repository.getAllPreviews();     //This is a Map
-        this.setState({favoritesList: Repository.getUserFavorites(this.user.id)})
-    }
 
-    refreshData(){
-        Repository.getAllTracks();
+        //this.setState({favoritesList: Repository.getUserFavorites(this.user.id)})
 
-        Repository.getQueue(this.user.id).then(trackList => this.setState({trackList: trackList}));
-        Repository.isQueueLooping(this.user.id).then(looping => this.setState({looping: looping}));
+        Repository.getUserFavorites(this.user.id)
+            .then(favorites => this.setState({favoritesList: favorites}));
+
+
+
     }
 
 
@@ -124,7 +121,7 @@ export class CommunityTracks extends React.Component {
                     <input type="text" value={this.state.search} placeholder="Search.."
                            className={'CTSearch'} onChange={this.handleSearch}/>
 
-                   <button onClick={this.toggleSortFav} style={{cursor: 'pointer'}} title={"Search for favorites only"}>
+                   <button onClick={this.toggleSortFav} style={{cursor: 'pointer'}} title={"Search for favorites only"} className={'CTSearchFav'}>
                        <SearchFav searchFavsOnly={this.state.searchFavsOnly}/>
                    </button>
 

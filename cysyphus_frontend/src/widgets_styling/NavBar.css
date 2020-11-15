@@ -6,7 +6,7 @@
     width: 100%;
 }
 
-.LinkStyle, .LoginButton {
+.LinkStyle, .LoginButton, .SettingsButton {
     background-color: var(--maincolor);
     color: var(--accentcolor);
     cursor: pointer;
@@ -20,24 +20,10 @@
     display: inline-block;
 }
 
-.SettingsButton{
-    background-color: var(--maincolor);
-    color: var(--accentcolor);
-    cursor: pointer;
-
-    font-family: Arial;
-    text-align: center;
-    text-decoration: none;
-    font-size: 18px;
-
-    padding: 15px 32px;
-    display: inline-block;
+.LoginButton, .SettingsButton {
     float: right;
 }
-
-.LoginButton {
-    float: right;
-}
-.LinkStyle:hover, .LoginButton:hover {
+.LinkStyle:hover, .LoginButton:hover, .SettingsButton:hover {
     background-color: var(--mainhover);
+    color: var(--accentcolor);
 }

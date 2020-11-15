@@ -12,8 +12,8 @@ export class QueueItem extends React.Component {
         this.index = props.index;
 
         this.state = {
-            eraseBefore: true
-        }
+            eraseBefore: this.props.eraseBefore
+        };
 
         this.handleReorder = props.handleReorder;
         this.handleEraser = this.handleEraser.bind(this);
@@ -23,20 +23,22 @@ export class QueueItem extends React.Component {
 
     handleEraser(){
         const eraseBefore = this.state.eraseBefore;
-        this.setState({playing: !eraseBefore});
-        Repository.setCurrentTrackPlaying(this.user.id, !eraseBefore);
+        this.setState({eraseBefore: !eraseBefore});
+        Repository.setQueueTrackEraseBefore(this.track.id, !eraseBefore);
     }
 
     render() {
         return(
             <li>
                 <span className={'QueueItemTitle'}>{this.track.name}</span>
+                {/*
                 <button onClick={() => this.handleReorder(this.track.id, -1)} className={'QueueItemReorderButton'} title={"Move track upward"}>
                     <KeyboardArrowUp/>
                 </button>
                 <button onClick={() => this.handleReorder(this.track.id, 1)} className={'QueueItemReorderButton'} title={"Move track downward"}>
                     <KeyboardArrowDown/>
                 </button>
+                */}
                 <button onClick={this.handleEraser} className={'QueueItemButton'} title={"Erase before starting track"}>
                     <EraseButton eraseBefore={this.state.eraseBefore}/>
                 </button>

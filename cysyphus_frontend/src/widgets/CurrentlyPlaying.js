@@ -14,7 +14,7 @@ export class CurrentlyPlaying extends React.Component {
 
         //These are temporary example calls, later will be on timer for api
         this.state = {
-            track: new Track(-1, "Unknown", "Unknown", []),
+            track: new Track(-1, "None", "None", []),
             preview: Repository.getSampleTrackPreview(),
             progress: 0,
 
@@ -29,11 +29,8 @@ export class CurrentlyPlaying extends React.Component {
     }
 
     componentDidMount() {
-        this.refreshData();
-    }
-    refreshData(){
         Repository.getCurrentTrack().then(track => {this.setState({track: track}); return track})
-            .then(track => Repository.getTrackPreview("a91eeb7f-210f-423a-b6c4-bf31f8f918b0")).then(preview => this.setState({preview: preview}));
+            .then(track => {if(track.id !== false) Repository.getTrackPreview(track.id)}).then(preview =>this.setState({preview: preview}));
         Repository.getCurrentTrackProgress().then(progress => this.setState({progress: progress}));
 
         Repository.isCurrentTrackPlaying(this.user.id).then(playing => this.setState({playing: playing}));
@@ -58,7 +55,6 @@ export class CurrentlyPlaying extends React.Component {
 
 
     //-----------------------------------------------------------------------------------------------------------------
-
 
     render() {
         return(
@@ -86,7 +82,7 @@ export class CurrentlyPlaying extends React.Component {
                 <div className={'CurrentlyPlayingOptionsContainer'}>
                     <PausePlayButton playing={this.state.playing} togglePlaying={this.togglePlaying}/>
                     <button className={'SkipButton'} onClick={this.handleSkip} title={"Skip current track"}>
-                        <SkipNext/> <p>Skip</p>
+                        <SkipNext/> <p style={{margin: 'auto'}}>Skip</p>
                     </button>
                     <button className={'LoopButton'} onClick={this.handleClickLoop} title={"Loop current track"}>
                         <LoopButton looping={this.state.looping}/>
@@ -99,8 +95,10 @@ export class CurrentlyPlaying extends React.Component {
 
 function PausePlayButton(props){
     if(props.playing)
-        return <button className={'PausePlayButton'} onClick={props.togglePlaying} title={"Pause current track"}><Pause/> <p>Pause</p></button>
-    return <button className={'PausePlayButton'} onClick={props.togglePlaying} title={"Play current track"}><PlayArrow/> <p>Play</p></button>
+        return <button className={'PausePlayButton'} onClick={props.togglePlaying} title={"Pause current track"}>
+            <Pause/><p style={{margin: 'auto'}}>Pause</p></button>
+    return <button className={'PausePlayButton'} onClick={props.togglePlaying} title={"Play current track"}>
+        <PlayArrow/> <p style={{margin: 'auto'}}>Play</p></button>
 }
 
 function LoopButton(props){
