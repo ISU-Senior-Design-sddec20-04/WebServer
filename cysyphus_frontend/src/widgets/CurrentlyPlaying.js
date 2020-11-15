@@ -14,8 +14,8 @@ export class CurrentlyPlaying extends React.Component {
 
         //These are temporary example calls, later will be on timer for api
         this.state = {
-            track: new Track(-1, "None", "None", []),
-            preview: Repository.getSampleTrackPreview(),
+            track: new Track(-1, "Unknown", "Unknown", []),
+            preview: Repository.noPreview,
             progress: 0,
 
             playing: true,

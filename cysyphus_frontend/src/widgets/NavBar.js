@@ -12,7 +12,7 @@ const NavBar = () => {
             <NavLink to="/Settings" className="SettingsButton">Settings</NavLink>
             <NavLink to="/login" className="LoginButton">Log In</NavLink>
 
-            <NavLink to="signup" className = "SignUpButton">Sign UP</NavLink> 
+            <NavLink to="signup" className = "LoginButton">Sign UP</NavLink>
 
         </div>
     )

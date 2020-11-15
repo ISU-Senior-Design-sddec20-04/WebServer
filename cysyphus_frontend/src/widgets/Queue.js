@@ -14,6 +14,7 @@ export class Queue extends React.Component {
 
         this.state = {
             trackList: [],
+            //trackList: Repository.getSampleTrackList(),
             looping: false,
         };
 
@@ -101,6 +102,8 @@ function QueueTrackList(props){
             <h3>There are no tracks queued!</h3>
             <h3>Add more using the 'Add Track' button</h3>
         </div>);
+
+    console.log(props.trackList);
 
     return props.trackList.map((track) =>
         <QueueItem key={track.id} track={track} handleReorder={props.reorder}
