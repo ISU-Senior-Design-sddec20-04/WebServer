@@ -1,7 +1,7 @@
 @import "../COLORS.css";
 
 .background{
-    background: linear-gradient(360deg, rgba(255,0,0,0), rgb(255, 0, 0));
+    background: linear-gradient(360deg, rgba(141,199,63,0), rgb(141,199,63));
     background-size:cover;
     min-height:100%;
 }
@@ -9,7 +9,7 @@
 .Border{
     background: linear-gradient(360deg, rgba(255,255,255,255), rgb(255,255, 255));
     background-size:cover;
-    max-width: 960px;
+    max-width: 965px;
     height: auto;
     width: auto;
     margin: 0px auto 0px auto;
@@ -36,7 +36,7 @@
 
 
 .twitchWrapper{
-    max-width: 960px;
+    max-width: 965px;
     max_height: 540px;
     height: auto;
     width: auto;
