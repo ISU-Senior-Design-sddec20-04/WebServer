@@ -1,0 +1,5 @@
+/.metadata/
+*.jpg
+webService/src/main/resources/application.properties
+*.png
+*.thr
