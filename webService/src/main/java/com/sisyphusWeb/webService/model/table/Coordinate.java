@@ -11,9 +11,9 @@ public class Coordinate implements Serializable{
 		
 	}
 	
-	public Coordinate(float rho, float theta) {
-		this.rho = rho;
+	public Coordinate(float theta, float rho) {
 		this.theta = theta;
+		this.rho = rho;
 	}
 
 	public float getRho() {

@@ -44,6 +44,11 @@ public class QueueController {
 		return queueService.returnActiveTrack();
 	}
 	
+	@GetMapping("/getStreamId")
+	public String getStreamId() {
+		return queueService.returnStreamId();
+	}
+	
 	@PostMapping("/addToQueue")
 	public String addToQueue(@RequestParam String trackId) {
 		return queueService.addToQueue(trackId);

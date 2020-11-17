@@ -101,10 +101,11 @@ public class TrackService {
     	ArrayList<Coordinate> coordinates= new ArrayList<>();
     	
     	while(input.hasNext()) {
-    		float rho = input.nextFloat();
-    		float theta = input.nextFloat();
     		
-    		Coordinate coordinate = new Coordinate(rho, theta);
+    		float theta = input.nextFloat();
+    		float rho = input.nextFloat();
+    		
+    		Coordinate coordinate = new Coordinate(theta, rho);
     		coordinates.add(coordinate);
     	}
     	

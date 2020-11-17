@@ -10,8 +10,10 @@ import org.springframework.stereotype.Service;
 import com.sisyphusWeb.webService.model.table.BallPosition;
 import com.sisyphusWeb.webService.model.table.Coordinate;
 import com.sisyphusWeb.webService.model.table.QueueItem;
+import com.sisyphusWeb.webService.model.table.StreamItem;
 import com.sisyphusWeb.webService.model.table.Track;
 import com.sisyphusWeb.webService.repository.QueueRepository;
+import com.sisyphusWeb.webService.repository.StreamRepository;
 import com.sisyphusWeb.webService.repository.TrackRepository;
 
 @Service
@@ -24,6 +26,9 @@ public class QueueService {
 	private TrackRepository trackRepo;
 	
 	@Autowired
+	private StreamRepository streamRepo;
+	
+	@Autowired
 	private TableService tableService;
 	
 	@Autowired
@@ -31,13 +36,11 @@ public class QueueService {
 	
 	private boolean isStreaming = true;
 	
-	private String streamId = "";
+	private double lastRho = 0;
 	
-	private double lastRho;
+	private double lastTheta = 0;
 	
-	private double lastTheta;
-	
-	private String activeTrack;
+	String activeTrack;
 	
 	public List<QueueItem> returnQueue() {
 		return queueRepo.findAll();
@@ -102,9 +105,11 @@ public class QueueService {
 	public void sendClear(String streamId) {
 		List<Coordinate> coords = new ArrayList<>();
 		coords.add(new Coordinate(0, 0));
-		coords.add(new Coordinate(1, (float) 314.15));
-		String coordinateString = trackService.streamStringBuilder(coords);
-		tableService.add_verts(streamId, coordinateString);
+		coords.add(new Coordinate( (float) 314.15, 1));
+		for(Coordinate coord : coords) {
+			String coordinateString = "{\"th\":" + coord.getTheta() + ",\"r\":" + coord.getRho() + "}";
+			tableService.add_verts(streamId, coordinateString);
+		}
 	}
 	
 	public void sendTrack(String streamId, String trackId) {
@@ -129,56 +134,71 @@ public class QueueService {
 		return trackRepo.findById(activeTrack).get();
 	}
 	
-	@Scheduled(fixedRate=1000)
-	public void updateQueue() {
-		if(!isStreaming) {
-			int remainingTime = tableService.getTrackTime().getRemaining_time();
-			if(remainingTime <= 0) {
-				long count = queueRepo.count();
-				if(count > 0) {
-					QueueItem queueItem = returnQueue().get(0);
-					boolean isClear = queueItem.isSendClear();
-					if(isClear) {
-						queueItem.setSendClear(false);
-						queueRepo.save(queueItem);
-						String erase = trackRepo.findByName("Erase").getId();
-						tableService.set_track(erase);
-					} else {
-						tableService.set_track(queueItem.getTrack());
-						removeFromQueue(queueItem.getTrack());
-					}
-				}
-			}
-		} else {
-			BallPosition ballPos = tableService.get_ball_position();
-			double rho = ballPos.getR();
-			double theta = ballPos.getTh();
-			if(rho == lastRho && theta == lastTheta) {
-				long count = queueRepo.count();
-				if(count > 0) {
-					if(streamId.isBlank()) {
-						streamId = tableService.start_streaming();
-					} else {
-						tableService.stop_streaming(streamId);
-						streamId = tableService.start_streaming();
-					}
-					QueueItem queueItem = returnQueue().get(0);
-					boolean isClear = queueItem.isSendClear();
-					if(isClear) {
-						queueItem.setSendClear(false);
-						queueRepo.save(queueItem);
-						sendClear(streamId);
-					} else {
-						sendTrack(streamId, queueItem.getTrack());
-						activeTrack = queueItem.getTrack();
-						removeFromQueue(queueItem.getTrack());
-					}
-				} else {
-					activeTrack = "";
-				}
-			}
-			lastRho = ballPos.getR();
-			lastTheta = ballPos.getTh();
-		}
+	public String returnStreamId() {
+		return streamRepo.getOne(1).getStreamId();
 	}
+	
+//	@Scheduled(fixedRate=5000)
+//	public void updateQueue() throws InterruptedException {
+//		if(!isStreaming) {
+//			int remainingTime = tableService.getTrackTime().getRemaining_time();
+//			if(remainingTime <= 0) {
+//				long count = queueRepo.count();
+//				if(count > 0) {
+//					QueueItem queueItem = returnQueue().get(0);
+//					boolean isClear = queueItem.isSendClear();
+//					if(isClear) {
+//						queueItem.setSendClear(false);
+//						queueRepo.save(queueItem);
+//						String erase = trackRepo.findByName("Erase").getId();
+//						tableService.set_track(erase);
+//					} else {
+//						tableService.set_track(queueItem.getTrack());
+//						removeFromQueue(queueItem.getTrack());
+//					}
+//				}
+//			}
+//		} else {
+//			BallPosition ballPos = tableService.get_ball_position();
+//			double rho = ballPos.getR();
+//			double theta = ballPos.getTh();
+//			if(rho == lastRho && theta == lastTheta) {
+//				long count = queueRepo.count();
+//				if(count > 0) {
+//					if(streamRepo.count() <= 0) {
+//						String streamId = tableService.start_streaming();
+//						streamRepo.save(new StreamItem(1, streamId));
+//						Thread.sleep(2000);
+//					} else {
+//						String streamId = streamRepo.findById(1).get().getStreamId();
+//						tableService.stop_streaming(streamId);
+//						Thread.sleep(2000);
+//						streamId = tableService.start_streaming();
+//						streamRepo.save(new StreamItem(1, streamId));
+//					}
+//					QueueItem queueItem = returnQueue().get(0);
+//					boolean isClear = queueItem.isSendClear();
+//					if(isClear) {
+//						queueItem.setSendClear(false);
+//						queueRepo.save(queueItem);
+//						String streamId = streamRepo.findById(1).get().getStreamId();
+//						sendClear(streamId);
+//						Thread.sleep(20000);
+//						
+//					} else {
+//						String streamId = streamRepo.findById(1).get().getStreamId();
+////						sendTrack(streamId, queueItem.getTrack());
+//						sendTrackByCoord(streamId, queueItem.getTrack());
+//						Thread.sleep(2000);
+//						activeTrack = queueItem.getTrack();
+//						removeFromQueue(queueItem.getTrack());
+//					}
+//				} else {
+//					activeTrack = "";
+//				}
+//			}
+//			lastRho = ballPos.getR();
+//			lastTheta = ballPos.getTh();
+//		}
+//	}
 }
