@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cafa6cc9-f57b-4965-a77d-36dd54b494f1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/http-common.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/http-common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/pages/Community.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/Community.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/pages/ImageUpload.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/ImageUpload.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/pages/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/pages/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/ImageUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/ImageUpload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/NavBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/UploadFileWidget.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/UploadFileWidget.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/upload-fileService.js" beforeDir="false" afterPath="$PROJECT_DIR$/cysyphus_frontend/src/widgets/upload-fileService.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="HTTP Request" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectId" id="1jXDDseae3LBGt1JJ5u9SR33D7b" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="jsx.switch.disabled" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Users\Morgan\IntelliJ IDEA 2020.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cafa6cc9-f57b-4965-a77d-36dd54b494f1" name="Default Changelist" comment="" />
+      <created>1603941426359</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603941426359</updated>
+      <workItem from="1603941433718" duration="10430000" />
+      <workItem from="1604175649091" duration="8181000" />
+      <workItem from="1604288468287" duration="556000" />
+      <workItem from="1604289265068" duration="6474000" />
+      <workItem from="1604741446581" duration="1875000" />
+      <workItem from="1604884684577" duration="26877000" />
+      <workItem from="1605078491139" duration="3615000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="638" y="342" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603942993394">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="638" y="342" key="#com.intellij.fileTypes.FileTypeChooser/1920.-179.1920.1080/0.0.1920.1080/-1440.12.1440.900@0.0.1920.1080" timestamp="1603942993394" />
+    <state width="1877" height="295" key="GridCell.Tab.0.bottom" timestamp="1604974633977">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="295" key="GridCell.Tab.0.bottom/1920.-179.1920.1080/0.0.1920.1080/-1440.12.1440.900@0.0.1920.1080" timestamp="1604974633977" />
+    <state width="1877" height="295" key="GridCell.Tab.0.center" timestamp="1604974633976">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="295" key="GridCell.Tab.0.center/1920.-179.1920.1080/0.0.1920.1080/-1440.12.1440.900@0.0.1920.1080" timestamp="1604974633976" />
+    <state width="1877" height="295" key="GridCell.Tab.0.left" timestamp="1604974633976">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="295" key="GridCell.Tab.0.left/1920.-179.1920.1080/0.0.1920.1080/-1440.12.1440.900@0.0.1920.1080" timestamp="1604974633976" />
+    <state width="1877" height="295" key="GridCell.Tab.0.right" timestamp="1604974633976">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="295" key="GridCell.Tab.0.right/1920.-179.1920.1080/0.0.1920.1080/-1440.12.1440.900@0.0.1920.1080" timestamp="1604974633976" />
+    <state x="205" y="6" key="new project wizard" timestamp="1604553187249">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="205" y="6" key="new project wizard/1920.-179.1920.1080/0.0.1920.1080/-1440.12.1440.900@0.0.1920.1080" timestamp="1604553187249" />
+    <state x="616" y="250" key="run.anything.popup" timestamp="1605077351272">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="616" y="250" key="run.anything.popup/1920.-179.1920.1080/0.0.1920.1080/-1440.12.1440.900@0.0.1920.1080" timestamp="1605077351272" />
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1604604266972">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/1920.-179.1920.1080/0.0.1920.1080/-1440.12.1440.900@0.0.1920.1080" timestamp="1604604266972" />
+  </component>
+</project>

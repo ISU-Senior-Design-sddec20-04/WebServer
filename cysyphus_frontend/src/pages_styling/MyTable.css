@@ -1,0 +1,18 @@
+@import "../COLORS.css";
+
+.MyTableWrapper {
+    max-width: 1000px;
+    margin: 0px auto 0px auto;
+}
+
+.Username {
+    margin: 40px 10px 0px 10px;
+}
+
+.CurrentlyPlayingWrapper {
+    margin: 0px 10px 0px 10px;
+}
+
+.QueueWrapper {
+    margin: 0px 10px 0px 10px;
+}
